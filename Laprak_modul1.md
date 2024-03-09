@@ -3,11 +3,54 @@
 
 ## Dasar Teori
 
-Berikan penjelasan teori terkait materi modul ini dengan bahasa anda sendiri serta susunan yang terstruktur per topiknya.
+Tipe data adalah klasifikasi value suatu variabel yang membantu operasi komputer untuk mengenali nilai data tanpa menghasilkan output error. Pada dasarnya, komputer hanya memahami bahasa biner (binary language) yaitu 1 dan 0. Agar komputer melakukan operasi yang lebih kompleks, perlu adanya tipe data yang bisa dipahami bahasa komputer atau bahasa pemrograman.
+
+1. Tipe data Primitif
+   Tipe data primitif adalah tipe data dasar yang banyak digunakan bahasa pemrogaman contohnya:
+   a.int(Integer)
+   b.float
+   c.char
+   d.boolean
+   e.double
+2. Tipe data abstrak
+   tipe data abstrak atau lebih dikenal dengan istilah ADT(Abstract Data Types) adalah tipe        data yang bergantung dengan tipe data dan serangkaian operasi yang dilakukan sesuai dengan      input dan output pada software.
+3. Tipe data koleksi(collection)
+   adalah tipe data dengan jumlah data yang dinamis. misalkan tipe data integer, yang terdiri dari banyak variabel. kemuan variabel tersebut disimpan dalan suatu tempat. Dalam bahasa c++ disebut dengan array, vektor, dan map.
+
 
 ## Guided 
 
-### 1. [Nama Topik]
+### 1. Tipe data primitif
+
+```C++
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "ini adalah file code guided praktikan" << endl;
+    return 0;
+}
+```
+Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
+
+## Guided 
+
+### 2. Tipe data Abstrak
+
+```C++
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "ini adalah file code guided praktikan" << endl;
+    return 0;
+}
+```
+Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
+
+## Guided 
+
+### 1. Tipe data Koleksi
 
 ```C++
 #include <iostream>
@@ -22,7 +65,43 @@ Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktika
 
 ## Unguided 
 
-### 1. [Soal]
+### 1. Buatlah program menggunakan tipe data primitif minimal dua fungsi dan bebas.Menampilkan program, jelaskan program tersebut dan ambil kesimpulan dari materi tipe data primitif!
+
+```C++
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "ini adalah file code unguided praktikan" << endl;
+    return 0;
+}
+```
+#### Output:
+![240302_00h00m06s_screenshot](https://github.com/suxeno/Struktur-Data-Assignment/assets/111122086/6d1727a8-fb77-4ecf-81ff-5de9386686b7)
+
+Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
+
+## Unguided 
+
+### 2. Jelaskan fungsi dari class dan struct secara detail dan berikan contoh programnya
+
+```C++
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "ini adalah file code unguided praktikan" << endl;
+    return 0;
+}
+```
+#### Output:
+![240302_00h00m06s_screenshot](https://github.com/suxeno/Struktur-Data-Assignment/assets/111122086/6d1727a8-fb77-4ecf-81ff-5de9386686b7)
+
+Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
+
+## Unguided 
+
+### 3. Buat dan jelaskan progaram menggunakan fungsi map dan jelaskan perbedaan dari array map
 
 ```C++
 #include <iostream>
