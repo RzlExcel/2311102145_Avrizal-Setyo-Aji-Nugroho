@@ -8,11 +8,11 @@ Tipe data adalah klasifikasi value suatu variabel yang membantu operasi komputer
 
 1. Tipe data Primitif
    Tipe data primitif adalah tipe data dasar yang banyak digunakan bahasa pemrogaman contohnya:
-   a.int(Integer)<div>
-   b.float
-   c.char
-   d.boolean
-   e.double
+   <div>a.int(Integer)<div>
+   b.float <div>
+   c.char <div>
+   d.boolean <div>
+   e.double <div>
 2. Tipe data abstrak
    tipe data abstrak atau lebih dikenal dengan istilah ADT(Abstract Data Types) adalah tipe        data yang bergantung dengan tipe data dan serangkaian operasi yang dilakukan sesuai dengan      input dan output pada software.
 3. Tipe data koleksi(collection)
