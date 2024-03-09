@@ -1,5 +1,6 @@
 #include <iostream>
 #include <array>
+//Tipe data koleksi
 using namespace std;
 int main() {
 

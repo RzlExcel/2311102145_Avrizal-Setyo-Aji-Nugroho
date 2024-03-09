@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
+// Tipe data Abstrak
 struct Mahasiswa
 {
 char name[50];
