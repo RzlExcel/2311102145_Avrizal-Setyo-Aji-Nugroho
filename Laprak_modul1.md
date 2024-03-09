@@ -71,27 +71,69 @@ Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktika
 ### 2. Tipe data Abstrak
 
 ```C++
-#include <iostream>
-using namespace std;
+#include <stdio.h>
+#include <string.h>
+// Tipe data Abstrak
+// Struct
+struct Mahasiswa
+{
+char name[50];
+char address[100];
+int age;
+};
+int main()
+{
+   // Menggunakan Struct
+struct Mahasiswa mhs1, mhs2;
+// Mengisi nilai ke struct
+strcpy(mhs1.name, "Dian");
+strcpy(mhs1.address, "Mataram");
+mhs1.age = 22;
+strcpy(mhs2.name, "Bambang");
+strcpy(mhs2.address, "Surabaya");
+mhs2.age = 23;
 
-int main() {
-    cout << "ini adalah file code guided praktikan" << endl;
-    return 0;
+// Mencetak isi dari struct
+printf("## Mahasiswa 1 ##\n");
+printf("Nama: %s\n", mhs1.name);
+printf("Alamat: %s\n", mhs1.address);
+printf("Umur: %d\n", mhs1.age);
+printf ("\n");
+printf("## Mahasiswa 2 ##\n");
+printf("Nama: %s\n", mhs2.name);
+printf("Alamat: %s\n", mhs2.address);
+printf("Umur: %d\n", mhs2.age);
+return 0;
 }
 ```
 Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
 
 ## Guided 
 
-### 1. Tipe data Koleksi
+### 3. Tipe data Koleksi
 
 ```C++
 #include <iostream>
+#include <array>
+//Tipe data koleksi
 using namespace std;
-
 int main() {
-    cout << "ini adalah file code guided praktikan" << endl;
-    return 0;
+// Deklarasi dan inisialisasi array
+int nilai[5];
+nilai[0] = 23;
+nilai[1] = 50;
+nilai[2] = 34;
+nilai[3] = 78;
+nilai[4] = 90;
+
+// Mencetak array dengan tab
+
+cout << "Isi array pertama : " << nilai[0] << endl;
+cout << "Isi array kedua : " << nilai[1] << endl;
+cout << "Isi array ketiga : " << nilai[2] << endl;
+cout << "Isi array keempat : " << nilai[3] << endl;
+cout << "Isi array kelima : " << nilai[4] << endl;
+return 0;
 }
 ```
 Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
@@ -107,7 +149,6 @@ using namespace std;
 int main() {
     cout << "ini adalah file code unguided praktikan" << endl;
     return 0;
-}
 ```
 #### Output:
 ![240302_00h00m06s_screenshot](https://github.com/suxeno/Struktur-Data-Assignment/assets/111122086/6d1727a8-fb77-4ecf-81ff-5de9386686b7)
