@@ -276,4 +276,5 @@ Kode di atas mendemostrasikan tipe data koleksi 'map',yang digunakan untuk menyi
 ## Kesimpulan
 Tipe data adalah komponen penting untuk menyimpan infomasi dalam C++, yang memungkinkan program untuk bekerja dengan nilai numerik, karakter, dan keadaan logis. Tipe data C++ memberikan fleksibilitas untuk menyimpan dan mengelola data dalam program dengan efisien.
 ## Referensi
-[1] I. Holm, Narrator, and J. Fullerton-Smith, Producer, How to Build a Human [DVD]. London: BBC; 2002.
+[1] Hermawan, T. Informatika UTM , Buku Ajar dan Panduan Praktikum Struktur Data Buku Ajar & Panduan Praktikum STRUKTUR DATA. Madura:Universitas Trunojoyo Madura, 2013
+
