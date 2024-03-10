@@ -64,7 +64,7 @@ int main (){
     return 0;
 }
 ```
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
+Kode di atas adalah program sederhana dalam bahasa C++ yang meminta pengguna memasukkan operator(+,-,*,/) dan dua operand. Program kemudian menggunakan struktur switch case untuk mengevaluasi operator tersebut dan melakukan operasi aritmatika yang sesuai. Dan program pembagian memeriksa agar operand kedua tidak nol untuk menghindari kesalahan pembagian. Setelah melakukan operasi aritmatika hasil akan ditampilkan oleh cout. Jika program tidak valid maka program akan mengirim pesan kesalahan  
 
 ## Guided 
 
@@ -106,7 +106,7 @@ printf("Umur: %d\n", mhs2.age);
 return 0;
 }
 ```
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
+Kode di atas menggunakan tipe data absrak dalam bentuk struct untuk memprensentasikan informasi mahasiswa. Dua variable struct 'mhs1' dan 'mhs2' dibuat untuk menyimpan data mahasiswa. Nilai-nilai tersebut diisi dengan fungsi 'strcpy' dan kemudian dicetak menggunakan 'printf'.
 
 ## Guided 
 
@@ -136,7 +136,7 @@ cout << "Isi array kelima : " << nilai[4] << endl;
 return 0;
 }
 ```
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
+Kode di atas menunjukan tipe data koleksi, khususnya array. Dalam program ini, array 'nilai' yang terdiri dari 5 elemen bertipe int(integer) dideklarasikan dan di isi dengan nilai tertentu. Kemudian Dicetak menggunakan 'cout'.
 
 ## Unguided 
 
