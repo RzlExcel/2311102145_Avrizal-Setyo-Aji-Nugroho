@@ -179,7 +179,7 @@ int main() {
 #### Output:
 ![Unguided1](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan1_060324/OUTPUT%20unguided%201%20md1.png?raw=true)
 
-Kode di atas adalah program yang menggunakan tipe data primitif 'float' dengan 2 fungsi.fungsi pertama adalah mengitung luas segitiga dan fungsi kedua adalah menghitung keliling segitiga
+Kode di atas adalah program yang menggunakan tipe data primitif 'float' dengan 2 fungsi. Fungsi pertama adalah mengitung luas segitiga dan fungsi kedua adalah menghitung keliling segitiga.
 
 ## Unguided 
 
