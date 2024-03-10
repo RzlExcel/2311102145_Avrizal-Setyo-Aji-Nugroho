@@ -179,7 +179,7 @@ int main() {
 #### Output:
 ![Unguided1](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan1_060324/OUTPUT%20unguided%201%20md1.png?raw=true)
 
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
+Kode di atas adalah program yang menggunakan tipe data primitif 'float' dengan 2 fungsi.fungsi pertama adalah mengitung luas segitiga dan fungsi kedua adalah menghitung keliling segitiga
 
 ## Unguided 
 
@@ -231,7 +231,7 @@ int main() {
 #### Output:
 ![Unguided2](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan1_060324/OUTPUT%20unguided%202%20md1.png?raw=true)
 
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
+Kode di atas digunakan untuk mendefisinikan struct 'Character145' yang mempresentasikan atribut seperti nama, level, healt point, attach, crit rate, dan crit damage. Selain itu program mendefisinikan class 'Build145' yang menggunakn 'tampilkaninfo()' untuk menamp-ilkan informasi karakter yang diberikan. Dalam fungsi 'main()',objek 'karakter' dari class 'Build145' dibuat, dan sebuah objek 'Info1' dari struct 'Character145' diinisialisasi dengan nilai-nilai yang sesuai dengan karakter bernama "Yoimiya". Kemuadian 'tampilkaninfo()' dipanggil untuk menampilkan informasi karakter "Yoimiya".
 
 ## Unguided 
 
@@ -271,7 +271,7 @@ int main() {
 #### Output:
 ![Unguided3](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan1_060324/OUTPUT%20unguided%203%20md1.png?raw=true)
 
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
+Kode di atas mendemostrasikan tipe data koleksi 'map',yang digunakan untuk menyimpan pasangan kunci nilai. Map 'Stokbarang145' dideklarasikan dengan tipe data string sebangai kunci dan integer sebagai nilai. Kemudian diloop menggunakan 'for' dan hasilnya adalah daftar stok barang yang diurut berdasarkan nama dengan nomor urut yang ditampilkan.
 
 ## Kesimpulan
 Ringkasan dan interpretasi pandangan kalia dari hasil praktikum dan pembelajaran yang didapat[1].
