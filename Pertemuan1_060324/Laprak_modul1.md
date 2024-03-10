@@ -274,7 +274,6 @@ int main() {
 Kode di atas mendemostrasikan tipe data koleksi 'map',yang digunakan untuk menyimpan pasangan kunci nilai. Map 'Stokbarang145' dideklarasikan dengan tipe data string sebangai kunci dan integer sebagai nilai. Kemudian diloop menggunakan 'for' dan hasilnya adalah daftar stok barang yang diurut berdasarkan nama dengan nomor urut yang ditampilkan.
 
 ## Kesimpulan
-Ringkasan dan interpretasi pandangan kalia dari hasil praktikum dan pembelajaran yang didapat[1].
-
+Tipe data adalah komponen penting untuk menyimpan infomasi dalam C++, yang memungkinkan program untuk bekerja dengan nilai numerik, karakter, dan keadaan logis. Tipe data C++ memberikan fleksibilitas untuk menyimpan dan mengelola data dalam program dengan efisien.
 ## Referensi
 [1] I. Holm, Narrator, and J. Fullerton-Smith, Producer, How to Build a Human [DVD]. London: BBC; 2002.
