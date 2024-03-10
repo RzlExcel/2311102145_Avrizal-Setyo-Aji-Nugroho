@@ -143,12 +143,38 @@ Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktika
 ### 1. Buatlah program menggunakan tipe data primitif minimal dua fungsi dan bebas.Menampilkan program, jelaskan program tersebut dan ambil kesimpulan dari materi tipe data primitif!
 
 ```C++
+/*
+    Avrizal Setyo Aji Nugroho
+    2311102145
+*/
 #include <iostream>
 using namespace std;
+//fungsi menghitung luas segitiga
+float luassegitiga145(float alas, float tinggi){
+    return 0.5*alas*tinggi;
+}
+//fungsi mencari keliling segitiga
+float kelsegitiga145(float sisi1, float sisi2, float sisi3){
+    return sisi1+sisi2+sisi3;
+}
 
 int main() {
-    cout << "ini adalah file code unguided praktikan" << endl;
+    float sisi1,sisi2,sisi3;// variable untuk menyimpan sisi segitiga
+    // menginputkan angka
+    cout <<"Masukkan panjang sisi 1 : ";
+    cin >> sisi1;
+    cout <<"Masukkan panjang sisi 2 : ";
+    cin >> sisi2;
+    cout <<"Masukkan panjang sisi 3 : ";
+    cin >> sisi3;
+    //menghitung dan menampilkan luas dan keliling segitiga
+    float Luas145 = luassegitiga145(sisi1,sisi2);
+    cout << "Luas segitiga : " << Luas145 << endl;
+    float kel145 = kelsegitiga145(sisi1,sisi2,sisi3);
+    cout << "keliling segitiga : " << kel145 << endl;
+
     return 0;
+}
 ```
 #### Output:
 ![Unguided1](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan1_060324/OUTPUT%20unguided%201%20md1.png?raw=true)
@@ -160,11 +186,45 @@ Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktika
 ### 2. Jelaskan fungsi dari class dan struct secara detail dan berikan contoh programnya
 
 ```C++
+/*
+    Avrizal Setyo Aji Nugroho
+    2311102145
+*/
 #include <iostream>
+#include <string>
 using namespace std;
 
+// Definisi struct untuk merepresentasikan karakter
+struct Character145 {
+    string Nama;
+    string Level;
+    int HP;
+    int attack;
+    string Critrate;
+    string Critdamage;
+};
+
+// Definisi class untuk menampilkan informasi karakter
+class Build145 {
+public:
+    void tampilkanInfo(Character145 Info) {
+        cout << "Nama character : " << Info.Nama << endl;
+        cout << "Level : " << Info.Level << endl;
+        cout << "Healt Point : " << Info.HP << endl;
+        cout << "Attack : " << Info.attack << endl;
+        cout << "Crit rate : " << Info.Critrate << endl;
+        cout << "Crit damage : " << Info.Critdamage << endl;
+    }
+};
+
 int main() {
-    cout << "ini adalah file code unguided praktikan" << endl;
+    // Deklarasi build145
+    Build145 karakter;
+    // Deklarasi character145
+    Character145 Info1 = {"Yoimiya", "90/90", 18573, 2246, "75,9%", "210,2%"};
+    // Deklarasi class dan struct
+    karakter.tampilkanInfo(Info1);
+
     return 0;
 }
 ```
@@ -178,13 +238,35 @@ Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktika
 ### 3. Buat dan jelaskan progaram menggunakan fungsi map dan jelaskan perbedaan dari array map
 
 ```C++
+/*
+    Avrizal Setyo Aji Nugroho
+    2311102145
+*/
 #include <iostream>
+#include <map>
 using namespace std;
 
+
 int main() {
-    cout << "ini adalah file code unguided praktikan" << endl;
+    // deklarasi map dengan string dan int
+    map<string, int> Stokbarang145;
+    Stokbarang145["celana"]=110;
+    Stokbarang145["jaket"]=80;
+    Stokbarang145["kaos kaki"]=100;
+    Stokbarang145["kemeja"]=150;
+    Stokbarang145["sepatu"]=100;
+    Stokbarang145["topi"]=50;
+
+    cout <<"Stok barang di toko sheesh"<< endl;
+    // looping dan menampilkan elemen map
+    int i = 1;
+    for (const auto& pair : Stokbarang145) {
+        cout << i << " " << pair.first << ": " << pair.second << endl;
+        i++;
+    }
     return 0;
 }
+
 ```
 #### Output:
 ![Unguided3](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan1_060324/OUTPUT%20unguided%203%20md1.png?raw=true)
