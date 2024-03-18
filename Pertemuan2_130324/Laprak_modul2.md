@@ -88,7 +88,7 @@ int main() {
     return 0;
 }
 ```
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
+Kode di atas digunakan untuk mencari nilai-nilai maksimum dalam tiga dimensi. dengan user menginputkan panjang array dan  nilai-nilai dalam array tersebut.
 
 
 ## Unguided 
