@@ -4,8 +4,15 @@
 
 ## Dasar Teori
 
-Proses update
-
+Array adalah suatu struktur yang terdiri dari sejumlah elemen yang memiliki tipe data yang sama. Elemen-elemen array tersusun secara sekuensial dalam memori komputer. Array dibagi menjadi 3 :
+1. Array Satu Dimensi
+   adalah kumpulan elemen-elemen identik yang tersusun dalam satu baris, tetapi isi dari elemen tersebut boleh berbeda.
+2. Array Dua Dimensi
+   sering digambarkan sebagai sebuah matriks merupakan perluasan dari sebuah array satu dimensi. Pendeklarasian array dua dimensi hampir sama dengan pendeklarasian array satu dimensi, kecuali bahwa array dua dimensi terdapat dua jumlah elemen array yang terdapat di dalam kurung siku dan keduanya boleh tidak sama.
+3. Array Tiga Dimensi
+   digunakan untuk mengelola data dalam bentuk 3 dimensi atau tiga sisi
+4. Array Empat Dimensi
+   Array banyak dimensi ini pada dasarnya sama dengan array sebelimnya kecuali pada jumlah dimensinya.
 
 ## Guided 
 
