@@ -10,7 +10,7 @@ Array adalah suatu struktur yang terdiri dari sejumlah elemen yang memiliki tipe
 2. Array Dua Dimensi
    sering digambarkan sebagai sebuah matriks merupakan perluasan dari sebuah array satu dimensi. Pendeklarasian array dua dimensi hampir sama dengan pendeklarasian array satu dimensi, kecuali bahwa array dua dimensi terdapat dua jumlah elemen array yang terdapat di dalam kurung siku dan keduanya boleh tidak sama.
 3. Array Tiga Dimensi
-   digunakan untuk mengelola data dalam bentuk 3 dimensi atau tiga sisi
+   digunakan untuk mengelola data dalam bentuk 3 dimensi atau tiga sisi.
 4. Array Empat Dimensi
    Array banyak dimensi ini pada dasarnya sama dengan array sebelimnya kecuali pada jumlah dimensinya.
 
@@ -333,7 +333,7 @@ int main() {
 Program diatas memungkinkan user menginputkan sejumlah elemen array dan melakukan operasi tertentu pada array tersebut. Setelah diinput, program akan menampilkan menu dengan pilihan operasi yang dapat dilakukan, yaitu mencari nilai maksimum, minimum, atau rata-rata dari elemen array, serta opsi untuk keluar dari program. Program menggunakan loop do-while untuk memproses pilihan user secara berulang sampai user memilih untuk keluar. Selain itu, program menggunakan switch-case untuk mengeksekusi operasi yang dipilih user.
 
 ## Kesimpulan
-Ringkasan dan interpretasi pandangan kalia dari hasil praktikum dan pembelajaran yang didapat[1].
+Array dalam bahasa C++ adalah struktur data yang digunakan untuk menyimpan kumpulan elemen dengan tipe data yang sama secara berurutan dalam satu variabel. Dengan menggunakan array, kita dapat menyimpan dan mengakses data secara efisien menggunakan indeks numerik, yang memungkinkan pengelolaan data yang lebih terorganisir dan memudahkan akses data dalam program. Oleh karena itu, array sangat berguna dalam penyimpanan dan manipulasi sekumpulan data yang terorganisir dalam sebuah program.[1].
 
 ## Referensi
-[1] I. Holm, Narrator, and J. Fullerton-Smith, Producer, How to Build a Human [DVD]. London: BBC; 2002.
+[1] Pratama, M. A. (2020). STRUKTUR DATA ARRAY DUA DIMENSI PADA PEMROGRAMAN C++.
