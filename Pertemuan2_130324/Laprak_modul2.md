@@ -55,7 +55,7 @@ int main() {
 }
 
 ```
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
+Program diatas adalah sebuah program C++ yang mendemontasikan array tiga dimensi. Pertama, program meminta user menginputkan nilai ke dalamj array yang telah dideklarasikan. kemudian, program mencetak nilai-nilai terdebut sebagai hasil input. Selanjutnya, program kembali nilai array dalam format yang tersetruktur, dalam kode diatas adalah 2x3x3, yang berarti terdapat 2 matriks dua dimensi berukuran 3x3.
 
 ## Guided 
 
