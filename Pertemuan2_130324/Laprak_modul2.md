@@ -167,8 +167,7 @@ int main() {
 
 ```
 #### Output:
-![Unguided1](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan2_130324/Unguided2modul2pt1.png?raw=true)
-![Unguided1](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan2_130324/Unguided2modul2pt2.png.png?raw=true)
+![Unguided1](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan1_060324/OUTPUT%20unguided%201%20md1.png?raw=true)
 
 Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
 
@@ -232,7 +231,8 @@ int main() {
 
 ```
 #### Output:
-![Unguided1](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan1_060324/OUTPUT%20unguided%201%20md1.png?raw=true)
+![Unguided2](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan2_130324/Unguided2modul2pt1.png?raw=true)
+![Unguided2](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan2_130324/Unguided2modul2pt2.png?raw=true)
 Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
 
 ## Unguided 
