@@ -9,7 +9,7 @@ Proses update
 
 ## Guided 
 
-### 1. Tipe data primitif
+### 1. Program input array 3 dimensi
 
 ```C++
 #include <iostream>
@@ -59,7 +59,7 @@ Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktika
 
 ## Guided 
 
-### 2. Tipe data Abstrak
+### 2. Program mencari nilai maksimal pada array
 
 ```C++
 #include <iostream>
@@ -93,7 +93,7 @@ Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktika
 
 ## Unguided 
 
-### 1. Buatlah program menggunakan tipe data primitif minimal dua fungsi dan bebas.Menampilkan program, jelaskan program tersebut dan ambil kesimpulan dari materi tipe data primitif!
+### 1. Buatlah program untuk menampilkan Output seperti berikut dengan data yang di inputkan oleh user!
 
 ```C++
 /*
@@ -173,7 +173,7 @@ Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktika
 
 ## Unguided 
 
-### 2. Jelaskan fungsi dari class dan struct secara detail dan berikan contoh programnya
+### 2. Buatlah program Input array tiga dimensi (seperti pada guided) tetapi jumlah atau ukuran elemennya diinpukan oleh user!
 
 ```C++
 /*
@@ -237,7 +237,8 @@ Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktika
 
 ## Unguided 
 
-### 3. Buat dan jelaskan progaram menggunakan fungsi map dan jelaskan perbedaan dari array map
+### 3. Buatlah program menu untuk mencari nilai Maksimum, Minimum dan Nilai rata – rata dari suatu array dengan input yang dimasukan oleh user!
+
 
 ```C++
 /*
