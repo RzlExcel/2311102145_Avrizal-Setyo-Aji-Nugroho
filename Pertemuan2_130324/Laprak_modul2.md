@@ -169,7 +169,7 @@ int main() {
 #### Output:
 ![Unguided1](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan1_060324/OUTPUT%20unguided%201%20md1.png?raw=true)
 
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
+Kode di atas digunakan untuk menentukan ganjil genap dalam array. Dengan meminta user menginputkan sejumlah elemen data array.setelah itu, program memisahkan bilangan ganjil dan genap, kemudian program mencetak bilangan ganjil genap ke layar.
 
 ## Unguided 
 
@@ -233,7 +233,8 @@ int main() {
 #### Output:
 ![Unguided2](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan2_130324/Unguided2modul2pt1.png?raw=true)
 ![Unguided2](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan2_130324/Unguided2modul2pt2.png?raw=true)
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
+
+Program diatas sebiah program C++ yang memungkinkan user menentukan ukuran elemen array tiga dimensi(x,y,z) dan mengisi data sesuai yang diinginkan user. Kemudian program mencetak elemen-elemen array bersama indeksnya, serta mencetak array dalam format tiga dimensi.
 
 ## Unguided 
 
@@ -319,10 +320,10 @@ int main() {
 
 ```
 #### Output:
-![Unguided1](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan2_130324/Unguided3modul2pt1.png?raw=true)
-![Unguided1](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan2_130324/Unguided3modul2pt2.png?raw=true)
+![Unguided3](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan2_130324/Unguided3modul2pt1.png?raw=true)
+![Unguided3](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan2_130324/Unguided3modul2pt2.png?raw=true)
 
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
+Program diatas memungkinkan user menginputkan sejumlah elemen array dan melakukan operasi tertentu pada array tersebut. Setelah diinput, program akan menampilkan menu dengan pilihan operasi yang dapat dilakukan, yaitu mencari nilai maksimum, minimum, atau rata-rata dari elemen array, serta opsi untuk keluar dari program. Program menggunakan loop do-while untuk memproses pilihan user secara berulang sampai user memilih untuk keluar. Selain itu, program menggunakan switch-case untuk mengeksekusi operasi yang dipilih user.
 
 ## Kesimpulan
 Ringkasan dan interpretasi pandangan kalia dari hasil praktikum dan pembelajaran yang didapat[1].
