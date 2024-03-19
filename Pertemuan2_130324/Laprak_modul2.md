@@ -337,3 +337,4 @@ Array dalam bahasa C++ adalah struktur data yang digunakan untuk menyimpan kumpu
 
 ## Referensi
 [1] Pratama, M. A. (2020). STRUKTUR DATA ARRAY DUA DIMENSI PADA PEMROGRAMAN C++.
+[2] Hanief, S., Jepriana, I. W., & Kom, S. (2020). Konsep Algoritme dan Aplikasinya dalam Bahasa Pemrograman C++. Penerbit Andi.
