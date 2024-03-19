@@ -336,5 +336,5 @@ Program diatas memungkinkan user menginputkan sejumlah elemen array dan melakuka
 Array dalam bahasa C++ adalah struktur data yang digunakan untuk menyimpan kumpulan elemen dengan tipe data yang sama secara berurutan dalam satu variabel. Dengan menggunakan array, kita dapat menyimpan dan mengakses data secara efisien menggunakan indeks numerik, yang memungkinkan pengelolaan data yang lebih terorganisir dan memudahkan akses data dalam program. Oleh karena itu, array sangat berguna dalam penyimpanan dan manipulasi sekumpulan data yang terorganisir dalam sebuah program.[1].
 
 ## Referensi
-[1] Pratama, M. A. (2020). STRUKTUR DATA ARRAY DUA DIMENSI PADA PEMROGRAMAN C++.
+[1] Pratama, M. A. (2020). STRUKTUR DATA ARRAY DUA DIMENSI PADA PEMROGRAMAN C++. <div>
 [2] Hanief, S., Jepriana, I. W., & Kom, S. (2020). Konsep Algoritme dan Aplikasinya dalam Bahasa Pemrograman C++. Penerbit Andi.
