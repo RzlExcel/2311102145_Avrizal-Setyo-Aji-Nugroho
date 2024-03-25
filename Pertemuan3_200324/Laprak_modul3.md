@@ -1,22 +1,10 @@
-# <h1 align="center">Laporan Praktikum Modul Tipe Data</h1>
+# <h1 align="center">Laporan Praktikum Modul Single And Double Linked List</h1>
 <p align="center">Avrizal Setyo Aji Nugroho</p>
 <p align="center">2311102145</p>
 
 ## Dasar Teori
 
-Tipe data adalah klasifikasi value suatu variabel yang membantu operasi komputer untuk mengenali nilai data tanpa menghasilkan output error. Pada dasarnya, komputer hanya memahami bahasa biner (binary language) yaitu 1 dan 0. Agar komputer melakukan operasi yang lebih kompleks, perlu adanya tipe data yang bisa dipahami bahasa komputer atau bahasa pemrograman.
 
-1. Tipe data Primitif
-   Tipe data primitif adalah tipe data dasar yang banyak digunakan bahasa pemrogaman contohnya:
-   <div>a.int(Integer)<div>
-   b.float <div>
-   c.char <div>
-   d.boolean <div>
-   e.double <div>
-2. Tipe data abstrak
-   tipe data abstrak atau lebih dikenal dengan istilah ADT(Abstract Data Types) adalah tipe        data yang bergantung dengan tipe data dan serangkaian operasi yang dilakukan sesuai dengan      input dan output pada software.
-3. Tipe data koleksi(collection)
-   adalah tipe data dengan jumlah data yang dinamis. misalkan tipe data integer, yang terdiri dari banyak variabel. kemuan variabel tersebut disimpan dalan suatu tempat. Dalam bahasa c++ disebut dengan array, vektor, dan map.
 
 
 ## Guided 
