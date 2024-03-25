@@ -2,7 +2,7 @@
 <p align="center">Avrizal Setyo Aji Nugroho</p>
 <p align="center">2311102145</p>
 
-## Dasar Teori
+## Dasar Teori belom selese
 
 
 
