@@ -9,122 +9,416 @@
 
 ## Guided 
 
-### 1. Tipe data primitif
+### 1. Single Linked List
 
 ```C++
 #include <iostream>
-#include <iomanip>
-
 using namespace std;
-// Tipe Data Primitif
-int main (){
-    char op;
-    float num1, num2;
 
-    cout<< "Enter operator (+, -, *, /): ";
-    cin >> op;
+// Deklarasi Struct Node
+struct Node {
+    int data;
+    Node *next;
+};
 
-    cout << "enter two oprands: ";
-    cin >> num1 >> num2;
+Node *head;
+Node *tail;
 
-    switch (op)
-    {
-    case '+':
-        cout << "Result: " << num1 + num2;
-        break;
-    case '-':
-        cout << "Result: " << num1 - num2;
-        break;
-     case '*':
-        cout << "Result: " << num1 * num2;
-        break;
-    case '/':
-        if (num2 != 0){
-            cout << "Result: "<< fixed << setprecision(2) << num1 / num2;
-        } else{
-            cout << "Error! Division by zero is not allowed.";
-        }
-        break;
-    default:
-    cout << "Error! Operator is not correct";
-        break;
+// Inisialisasi Node
+void init() {
+    head = NULL;
+    tail = NULL;
+}
+
+// Pengecekan apakah list kosong
+bool isEmpty() {
+    return (head == NULL);
+}
+
+// Tambah Node di depan
+void insertDepan(int nilai) {
+    // Buat Node baru
+    Node *baru = new Node;
+    baru->data = nilai;
+    baru->next = NULL;
+
+    if (isEmpty()) {
+        head = tail = baru;
+    } else {
+        baru->next = head;
+        head = baru;
     }
+}
+
+// Tambah Node di belakang
+void insertBelakang(int nilai) {
+    // Buat Node baru
+    Node *baru = new Node;
+    baru->data = nilai;
+    baru->next = NULL;
+
+    if (isEmpty()) {
+        head = tail = baru;
+    } else {
+        tail->next = baru;
+        tail = baru;
+    }
+}
+
+// Hitung jumlah Node dalam list
+int hitungList() {
+    Node *hitung = head;
+    int jumlah = 0;
+
+    while (hitung != NULL) {
+        jumlah++;
+        hitung = hitung->next;
+    }
+
+    return jumlah;
+}
+
+// Tambah Node di posisi tertentu
+void insertTengah(int data, int posisi) {
+    if (posisi < 1 || posisi > hitungList()) {
+        cout << "Posisi diluar jangkauan" << endl;
+    } else if (posisi == 1) {
+        cout << "Posisi bukan posisi tengah" << endl;
+    } else {
+        Node *baru = new Node();
+        baru->data = data;
+
+        Node *bantu = head;
+        int nomor = 1;
+
+        while (nomor < posisi - 1) {
+            bantu = bantu->next;
+            nomor++;
+        }
+
+        baru->next = bantu->next;
+        bantu->next = baru;
+    }
+}
+
+// Hapus Node dari depan
+void hapusDepan() {
+    if (!isEmpty()) {
+        Node *hapus = head;
+
+        if (head->next != NULL) {
+            head = head->next;
+            delete hapus;
+        } else {
+            head = tail = NULL;
+            delete hapus;
+        }
+    } else {
+        cout << "List kosong!" << endl;
+    }
+}
+
+// Hapus Node dari belakang
+void hapusBelakang() {
+    if (!isEmpty()) {
+        Node *hapus = tail;
+        Node *bantu = head;
+
+        if (head != tail) {
+            while (bantu->next != tail) {
+                bantu = bantu->next;
+            }
+
+            tail = bantu;
+            tail->next = NULL;
+            delete hapus;
+        } else {
+            head = tail = NULL;
+            delete hapus;
+        }
+    } else {
+        cout << "List kosong!" << endl;
+    }
+}
+
+// Hapus Node dari posisi tertentu
+void hapusTengah(int posisi) {
+    if (posisi < 1 || posisi > hitungList()) {
+        cout << "Posisi diluar jangkauan" << endl;
+    } else if (posisi == 1) {
+        cout << "Posisi bukan posisi tengah" << endl;
+    } else {
+        int nomor = 1;
+        Node *bantu = head;
+        Node *bantu2 = NULL;
+        Node *hapus = NULL;
+
+        while (nomor <= posisi) {
+            if (nomor == posisi - 1) {
+                bantu2 = bantu;
+            }
+            if (nomor == posisi) {
+                hapus = bantu;
+            }
+            bantu = bantu->next;
+            nomor++;
+        }
+
+        bantu2->next = bantu;
+        delete hapus;
+    }
+}
+
+// Ubah data Node di depan
+void ubahDepan(int data) {
+    if (!isEmpty()) {
+        head->data = data;
+    } else {
+        cout << "List masih kosong!" << endl;
+    }
+}
+
+// Ubah data Node di belakang
+void ubahBelakang(int data) {
+    if (!isEmpty()) {
+        tail->data = data;
+    } else {
+        cout << "List masih kosong!" << endl;
+    }
+}
+
+// Ubah data Node di posisi tertentu
+void ubahTengah(int data, int posisi) {
+    if (!isEmpty()) {
+        if (posisi < 1 || posisi > hitungList()) {
+            cout << "Posisi di luar jangkauan" << endl;
+        } else if (posisi == 1) {
+            cout << "Posisi bukan posisi tengah" << endl;
+        } else {
+            Node *bantu = head;
+            int nomor = 1;
+
+            while (nomor < posisi) {
+                bantu = bantu->next;
+                nomor++;
+            }
+
+            bantu->data = data;
+        }
+    } else {
+        cout << "List masih kosong!" << endl;
+    }
+}
+
+// Hapus semua Node dalam list
+void clearList() {
+    Node *bantu = head;
+    Node *hapus;
+
+    while (bantu != NULL) {
+        hapus = bantu;
+        bantu = bantu->next;
+        delete hapus;
+    }
+
+    head = tail = NULL;
+    cout << "List berhasil terhapus!" << endl;
+}
+
+// Tampilkan isi list
+void tampil() {
+    Node *bantu = head;
+
+    if (!isEmpty()) {
+        while (bantu != NULL) {
+            cout << bantu->data << " ";
+            bantu = bantu->next;
+        }
+        cout << endl;
+    } else {
+        cout << "List masih kosong!" << endl;
+    }
+}
+
+int main() {
+    init();
+    insertDepan(3); tampil();
+    insertBelakang(5); tampil();
+    insertDepan(2); tampil();
+    insertDepan(1); tampil();
+    hapusDepan(); tampil();
+    hapusBelakang(); tampil();
+    insertTengah(7, 2); tampil();
+    hapusTengah(2); tampil();
+    ubahDepan(1); tampil();
+    ubahBelakang(8); tampil();
+    ubahTengah(11, 2); tampil();
+
     return 0;
 }
+
 ```
 Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
 
 ## Guided 
 
-### 2. Tipe data Abstrak
-
-```C++
-#include <stdio.h>
-#include <string.h>
-// Tipe data Abstrak
-// Struct
-struct Mahasiswa
-{
-char name[50];
-char address[100];
-int age;
-};
-int main()
-{
-   // Menggunakan Struct
-struct Mahasiswa mhs1, mhs2;
-// Mengisi nilai ke struct
-strcpy(mhs1.name, "Dian");
-strcpy(mhs1.address, "Mataram");
-mhs1.age = 22;
-strcpy(mhs2.name, "Bambang");
-strcpy(mhs2.address, "Surabaya");
-mhs2.age = 23;
-
-// Mencetak isi dari struct
-printf("## Mahasiswa 1 ##\n");
-printf("Nama: %s\n", mhs1.name);
-printf("Alamat: %s\n", mhs1.address);
-printf("Umur: %d\n", mhs1.age);
-printf ("\n");
-printf("## Mahasiswa 2 ##\n");
-printf("Nama: %s\n", mhs2.name);
-printf("Alamat: %s\n", mhs2.address);
-printf("Umur: %d\n", mhs2.age);
-return 0;
-}
-```
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
-
-## Guided 
-
-### 3. Tipe data Koleksi
+### 2. Double Linked List
 
 ```C++
 #include <iostream>
-#include <array>
-//Tipe data koleksi
 using namespace std;
+
+class Node {
+public:
+    int data;
+    Node* prev;
+    Node* next;
+};
+
+class DoublyLinkedList {
+public:
+    Node* head;
+    Node* tail;
+
+    DoublyLinkedList() {
+        head = nullptr;
+        tail = nullptr;
+    }
+
+    void push(int data) {
+        Node* newNode = new Node;
+        newNode->data = data;
+        newNode->prev = nullptr;
+        newNode->next = head;
+
+        if (head != nullptr) {
+            head->prev = newNode;
+        } else {
+            tail = newNode;
+        }
+
+        head = newNode;
+    }
+
+    void pop() {
+        if (head == nullptr) {
+            return;
+        }
+
+        Node* temp = head;
+        head = head->next;
+
+        if (head != nullptr) {
+            head->prev = nullptr;
+        } else {
+            tail = nullptr;
+        }
+
+        delete temp;
+    }
+
+    bool update(int oldData, int newData) {
+        Node* current = head;
+
+        while (current != nullptr) {
+            if (current->data == oldData) {
+                current->data = newData;
+                return true;
+            }
+            current = current->next;
+        }
+
+        return false;
+    }
+
+    void deleteAll() {
+        Node* current = head;
+
+        while (current != nullptr) {
+            Node* temp = current;
+            current = current->next;
+            delete temp;
+        }
+
+        head = nullptr;
+        tail = nullptr;
+    }
+
+    void display() {
+        Node* current = head;
+
+        while (current != nullptr) {
+            cout << current->data << " ";
+            current = current->next;
+        }
+
+        cout << endl;
+    }
+};
+
 int main() {
-// Deklarasi dan inisialisasi array
-int nilai[5];
-nilai[0] = 23;
-nilai[1] = 50;
-nilai[2] = 34;
-nilai[3] = 78;
-nilai[4] = 90;
+    DoublyLinkedList list;
 
-// Mencetak array dengan tab
+    while (true) {
+        cout << "1. Add data" << endl;
+        cout << "2. Delete data" << endl;
+        cout << "3. Update data" << endl;
+        cout << "4. Clear data" << endl;
+        cout << "5. Display data" << endl;
+        cout << "6. Exit" << endl;
 
-cout << "Isi array pertama : " << nilai[0] << endl;
-cout << "Isi array kedua : " << nilai[1] << endl;
-cout << "Isi array ketiga : " << nilai[2] << endl;
-cout << "Isi array keempat : " << nilai[3] << endl;
-cout << "Isi array kelima : " << nilai[4] << endl;
-return 0;
+        int choice;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: {
+                int data;
+                cout << "Enter data to add: ";
+                cin >> data;
+                list.push(data);
+                break;
+            }
+            case 2: {
+                list.pop();
+                break;
+            }
+            case 3: {
+                int oldData, newData;
+                cout << "Enter old data: ";
+                cin >> oldData;
+                cout << "Enter new data: ";
+                cin >> newData;
+                bool updated = list.update(oldData, newData);
+                if (!updated) {
+                    cout << "Data not found" << endl;
+                }
+                break;
+            }
+            case 4: {
+                list.deleteAll();
+                break;
+            }
+            case 5: {
+                list.display();
+                break;
+            }
+            case 6: {
+                return 0;
+            }
+            default: {
+                cout << "Invalid choice" << endl;
+                break;
+            }
+        }
+    }
+
+    return 0;
 }
+
 ```
 Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
+
 
 ## Unguided 
 
