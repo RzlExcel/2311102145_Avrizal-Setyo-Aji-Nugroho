@@ -949,7 +949,7 @@ int main() {
 }
 ```
 #### Output:
-![240302_00h00m06s_screenshot](https://github.com/suxeno/Struktur-Data-Assignment/assets/111122086/6d1727a8-fb77-4ecf-81ff-5de9386686b7)
+![Unguided1](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan3_200324/Unguided1md3pt1.png?raw=true)
 
 Sebuah program dalam bahasa C++ yang disebutkan di atas menggunakan struktur data Doubly Linked List untuk menyimpan dan mengelola data produk untuk sebuah toko kosmetik. User dapat menambahkan, menghapus, mengupdate, menampilkan, dan menghapus semua data produk melalui program ini. Semua data produk terdiri dari nama produk dan harganya. User dapat memilih berbagai operasi yang ingin mereka lakukan dengan menggunakan menu yang tersedia. Misalnya, mereka dapat menambah data baru, menghapus data, mengupdate data, menambah data dalam urutan tertentu, menghapus data berdasarkan posisi, menampilkan seluruh data produk, atau menghapus semua data produk sekaligus. Dengan interaksi yang mudah dipahami, program ini memberikan fleksibilitas untuk mengelola data produk di toko skincare.
 ## Kesimpulan
