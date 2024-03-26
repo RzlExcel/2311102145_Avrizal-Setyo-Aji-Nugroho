@@ -417,8 +417,7 @@ int main() {
 }
 
 ```
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
-
+Dalam bahasa pemrograman C++, program di atas mengimplementasikan struktur data Linked List Doubly. Jenis Linked List ini memiliki dua pointer untuk setiap node: pointer ke node sebelumnya (prev) dan pointer ke node selanjutnya (next). Melalui sebuah menu interaktif yang disediakan oleh program, pengguna dapat menambah, menghapus, mengubah, dan menampilkan data dalam Doubly Linked List. Mereka dapat melakukan hal-hal seperti menambah data baru, menghapus data, mengubah data, menghapus seluruh data, atau menampilkan isi dari Doubly Linked List. Semua operasi dapat dilakukan sesuai dengan pilihan user, dan hasilnya ditampilkan secara langsung.
 
 ## Unguided 
 
