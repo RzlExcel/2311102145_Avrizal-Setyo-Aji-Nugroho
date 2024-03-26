@@ -450,8 +450,8 @@ using namespace std;
 
 // Node struct untuk merepresentasikan node dalam linked list
 struct Node {
-    string nama_149;
-    int usia_149;
+    string nama_145;
+    int usia_145;
     Node* next;
 };
 
@@ -476,19 +476,19 @@ public:
     }
 
     // Fungsi untuk menambahkan node di depan
-    void insertFront(string nama_149, int usia_149) {
+    void insertFront(string nama_145, int usia_145) {
         Node* newNode = new Node;
-        newNode->nama_149 = nama_149;
-        newNode->usia_149 = usia_149;
+        newNode->nama_145 = nama_145;
+        newNode->usia_145 = usia_145;
         newNode->next = head;
         head = newNode;
     }
 
     // Fungsi untuk menambahkan node di belakang
-    void insertBack(string nama_149, int usia_149) {
+    void insertBack(string nama_145, int usia_145) {
         Node* newNode = new Node;
-        newNode->nama_149 = nama_149;
-        newNode->usia_149 = usia_149;
+        newNode->nama_145 = nama_145;
+        newNode->usia_145 = usia_145;
         newNode->next = nullptr;
         if (head == nullptr) {
             head = newNode;
@@ -502,18 +502,18 @@ public:
     }
 
     // Fungsi untuk menambahkan node di tengah
-    void insertMiddle(string nama_149, int usia_149, int posisi) {
+    void insertMiddle(string nama_145, int usia_145, int posisi) {
         if (posisi <= 0) {
             cout << "Posisi harus lebih besar dari 0" << endl;
             return;
         }
         if (posisi == 1) {
-            insertFront(nama_149, usia_149);
+            insertFront(nama_145, usia_145);
             return;
         }
         Node* newNode = new Node;
-        newNode->nama_149 = nama_149;
-        newNode->usia_149 = usia_149;
+        newNode->nama_145 = nama_145;
+        newNode->usia_145 = usia_145;
         Node* current = head;
         for (int i = 1; i < posisi - 1 && current != nullptr; ++i) {
             current = current->next;
@@ -527,10 +527,10 @@ public:
     }
 
     // Fungsi untuk mencari node berdasarkan nama
-    Node* search(string nama_149) {
+    Node* search(string nama_145) {
         Node* current = head;
         while (current != nullptr) {
-            if (current->nama_149 == nama_149) {
+            if (current->nama_145 == nama_145) {
                 return current;
             }
             current = current->next;
@@ -539,11 +539,11 @@ public:
     }
 
     // Fungsi untuk menghapus node berdasarkan nama
-    void remove(string nama_149) {
+    void remove(string nama_145) {
         if (head == nullptr) {
             return;
         }
-        if (head->nama_149 == nama_149) {
+        if (head->nama_145 == nama_145) {
             Node* temp = head;
             head = head->next;
             delete temp;
@@ -551,7 +551,7 @@ public:
         }
         Node* current = head;
         while (current->next != nullptr) {
-            if (current->next->nama_149 == nama_149) {
+            if (current->next->nama_145 == nama_145) {
                 Node* temp = current->next;
                 current->next = current->next->next;
                 delete temp;
@@ -565,7 +565,7 @@ public:
     void display() {
         Node* current = head;
         while (current != nullptr) {
-            cout << current->nama_149 << " " << current->usia_149 << endl;
+            cout << current->nama_145 << " " << current->usia_145 << endl;
             current = current->next;
         }
     }
@@ -575,18 +575,18 @@ int main() {
     LinkedList list;
 
     // Input data pengguna
-    string namaSaya;
-    int usiaSaya;
+    string namaSaya145;
+    int usiaSaya145;
 
     // Input data pengguna sendiri
     cout << "Masukkan nama Anda: ";
-    getline(cin, namaSaya);
+    getline(cin, namaSaya145);
     cout << "Masukkan usia Anda: ";
-    cin >> usiaSaya;
+    cin >> usiaSaya145;
     cin.ignore(); // Membersihkan newline dari buffer stdin
 
     // Masukkan data pengguna ke dalam linked list
-    list.insertFront(namaSaya, usiaSaya);
+    list.insertFront(namaSaya145, usiaSaya145);
 
     // Input data nama dan usia mahasiswa lain dari pengguna
     int jumlahMahasiswa;
@@ -595,16 +595,16 @@ int main() {
     cin.ignore(); // Membersihkan newline dari buffer stdin
 
     for (int i = 0; i < jumlahMahasiswa; ++i) {
-        string namaMahasiswa;
-        int usiaMahasiswa;
+        string namaMahasiswa145;
+        int usiaMahasiswa145;
 
         cout << "Masukkan nama mahasiswa ke-" << i+1 << ": ";
-        getline(cin, namaMahasiswa);
+        getline(cin, namaMahasiswa145);
         cout << "Masukkan usia mahasiswa ke-" << i+1 << ": ";
-        cin >> usiaMahasiswa;
+        cin >> usiaMahasiswa145;
         cin.ignore(); // Membersihkan newline dari buffer stdin
 
-        list.insertBack(namaMahasiswa, usiaMahasiswa);
+        list.insertBack(namaMahasiswa145, usiaMahasiswa145);
     }
 
     // Tampilkan seluruh data
@@ -713,12 +713,12 @@ using namespace std;
 // Deklarasi class Node
 class Node {
 public:
-    string nama_produk;
-    int harga;
+    string nama_produk145;
+    int harga145;
     Node* prev;
     Node* next;
 
-    Node(string nama, int hrg) : nama_produk(nama), harga(hrg), prev(nullptr), next(nullptr) {}
+    Node(string nama, int hrg) : nama_produk145(nama), harga145(hrg), prev(nullptr), next(nullptr) {}
 };
 
 // Deklarasi class DoubleLinkedList
@@ -729,8 +729,8 @@ public:
     DoubleLinkedList() : head(nullptr) {}
 
     // fungsi untuk menambahkan data
-    void tambahData(string nama_produk, int harga) {
-        Node* new_node = new Node(nama_produk, harga);
+    void tambahData(string nama_produk145, int harga145) {
+        Node* new_node = new Node(nama_produk145, harga145);
         if (!head) {
             head = new_node;
         } else {
@@ -744,10 +744,10 @@ public:
     }
 
     // fungsi untuk menghapus data produk yang dipilih
-    void hapusData(string nama_produk) {
+    void hapusData(string nama_produk145) {
         Node* current = head;
         while (current) {
-            if (current->nama_produk == nama_produk) {
+            if (current->nama_produk145 == nama_produk145) {
                 if (current->prev) {
                     current->prev->next = current->next;
                 }
@@ -765,12 +765,12 @@ public:
     }
 
     // fungsi untuk mengupdate data berdasarkan nama produk
-    void updateData(string nama_produk, string nama_baru, int harga_baru) {
+    void updateData(string nama_produk145, string nama_baru, int harga_baru) {
         Node* current = head;
         while (current) {
-            if (current->nama_produk == nama_produk) {
-                current->nama_produk = nama_baru;
-                current->harga = harga_baru;
+            if (current->nama_produk145 == nama_produk145) {
+                current->nama_produk145 = nama_baru;
+                current->harga145 = harga_baru;
                 return;
             }
             current = current->next;
@@ -778,11 +778,11 @@ public:
     }
 
     // fungsi untuk menambah data di urutan tertentu
-    void tambahDataUrutanTertentu(string nama_produk, int harga, string nama_setelah) {
-        Node* new_node = new Node(nama_produk, harga);
+    void tambahDataUrutanTertentu(string nama_produk145, int harga145, string nama_setelah) {
+        Node* new_node = new Node(nama_produk145, harga145);
         Node* current = head;
         while (current) {
-            if (current->nama_produk == nama_setelah) {
+            if (current->nama_produk145 == nama_setelah) {
                 new_node->next = current->next;
                 if (current->next) {
                     current->next->prev = new_node;
@@ -834,7 +834,7 @@ public:
         int NoUrut = 1;
         cout << "Nama Produk\tHarga" << endl;
         while (current) {
-            cout << NoUrut<< ".\t"<< current->nama_produk << "\t\t" << current->harga << endl;
+            cout << NoUrut<< ".\t"<< current->nama_produk145 << "\t\t" << current->harga145 << endl;
             current = current->next;
             NoUrut++;
         }
@@ -881,45 +881,45 @@ int main() {
 
         switch (pilihan) {
             case 1: {
-                string nama_produk;
-                int harga;
+                string nama_produk145;
+                int harga145;
                 cout << "Masukkan nama produk: ";
-                cin >> nama_produk;
+                cin >> nama_produk145;
                 cout << "Masukkan harga: ";
-                cin >> harga;
-                dll.tambahData(nama_produk, harga);
+                cin >> harga145;
+                dll.tambahData(nama_produk145, harga145);
                 break;
             }
             case 2: {
-                string nama_produk;
+                string nama_produk145;
                 cout << "Masukkan nama produk yang ingin dihapus: ";
-                cin >> nama_produk;
-                dll.hapusData(nama_produk);
+                cin >> nama_produk145;
+                dll.hapusData(nama_produk145);
                 break;
             }
             case 3: {
-                string nama_produk, nama_baru;
+                string nama_produk145, nama_baru;
                 int harga_baru;
                 cout << "Masukkan nama produk yang ingin diupdate: ";
-                cin >> nama_produk;
+                cin >> nama_produk145;
                 cout << "Masukkan nama baru: ";
                 cin >> nama_baru;
                 cout << "Masukkan harga baru: ";
                 cin >> harga_baru;
-                dll.updateData(nama_produk, nama_baru, harga_baru);
+                dll.updateData(nama_produk145, nama_baru, harga_baru);
                 break;
             }
             case 4: {
-                string nama_produk;
-                int harga;
+                string nama_produk145;
+                int harga145;
                 string nama_setelah;
                 cout << "Masukkan nama produk yang ingin ditambahkan: ";
-                cin >> nama_produk;
+                cin >> nama_produk145;
                 cout << "Masukkan harga: ";
-                cin >> harga;
+                cin >> harga145;
                 cout << "Masukkan nama produk setelahnya: ";
                 cin >> nama_setelah;
-                dll.tambahDataUrutanTertentu(nama_produk, harga, nama_setelah);
+                dll.tambahDataUrutanTertentu(nama_produk145, harga145, nama_setelah);
                 break;
             }
             case 5: {
@@ -951,10 +951,8 @@ int main() {
 #### Output:
 ![240302_00h00m06s_screenshot](https://github.com/suxeno/Struktur-Data-Assignment/assets/111122086/6d1727a8-fb77-4ecf-81ff-5de9386686b7)
 
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
-
+Sebuah program dalam bahasa C++ yang disebutkan di atas menggunakan struktur data Doubly Linked List untuk menyimpan dan mengelola data produk untuk sebuah toko kosmetik. User dapat menambahkan, menghapus, mengupdate, menampilkan, dan menghapus semua data produk melalui program ini. Semua data produk terdiri dari nama produk dan harganya. User dapat memilih berbagai operasi yang ingin mereka lakukan dengan menggunakan menu yang tersedia. Misalnya, mereka dapat menambah data baru, menghapus data, mengupdate data, menambah data dalam urutan tertentu, menghapus data berdasarkan posisi, menampilkan seluruh data produk, atau menghapus semua data produk sekaligus. Dengan interaksi yang mudah dipahami, program ini memberikan fleksibilitas untuk mengelola data produk di toko skincare.
 ## Kesimpulan
-Ringkasan dan interpretasi pandangan kalia dari hasil praktikum dan pembelajaran yang didapat[1].
-
+Single linked list adalah daftar di mana setiap elemen hanya memiliki koneksi ke elemen berikutnya, memudahkan penambahan dan penghapusan di awal tetapi sulit untuk mengakses elemen secara terbalik. Di sisi lain, double linked list memiliki koneksi maju dan mundur, memungkinkan navigasi dua arah. Meskipun double linked list membutuhkan lebih banyak memori karena setiap elemen memiliki dua koneksi, ini memudahkan operasi seperti penghapusan atau penambahan di tengah list. Pilihan antara keduanya tergantung pada kebutuhan aplikasi, dengan single linked list lebih cocok untuk navigasi satu arah dan double linked list lebih sesuai untuk navigasi maju dan mundur.
 ## Referensi
 [1] I. Holm, Narrator, and J. Fullerton-Smith, Producer, How to Build a Human [DVD]. London: BBC; 2002.
