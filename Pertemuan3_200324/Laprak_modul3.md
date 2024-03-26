@@ -8,7 +8,7 @@ Single Linked List adalah jenis Linked List yang hanya menggunakan satu pointer
 
 Double Linked List hanya memiliki satu pointer untuk menghubungkan node dari node pertama hingga terakhir. Namun, ada dua pointer, pointer next dan pointer prev, yang menunjuk ke node berikutnya dan sebelumnya. Struktur ini memungkinkan Linked List yang dihubungkan untuk bergerak di depan dan belakang.
 
-![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/a029d374-7c72-4c1e-96d5-299134dde67c)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/624613f7-c85f-4170-9e8c-a69c97837b9e)
 
 
 
