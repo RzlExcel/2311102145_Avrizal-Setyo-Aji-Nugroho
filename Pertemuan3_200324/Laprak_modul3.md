@@ -4,6 +4,11 @@
 
 ## Dasar Teori belom selese
 
+Single Linked List adalah jenis Linked List yang hanya menggunakan satu pointer untuk menghubungkan node dari node pertama hingga terakhir, dengan pointer terakhir menunjuk ke NULL. Dalam arti sederhana, Single Linked List adalah sebuah kumpulan data yang terbatas, sekuensial, dinamis, dan memiliki pointer untuk node berikutnya.
+
+Double Linked List hanya memiliki satu pointer untuk menghubungkan node dari node pertama hingga terakhir. Namun, ada dua pointer, pointer next dan pointer prev, yang menunjuk ke node berikutnya dan sebelumnya. Struktur ini memungkinkan Linked List yang dihubungkan untuk bergerak di depan dan belakang.
+
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/a029d374-7c72-4c1e-96d5-299134dde67c)
 
 
 
