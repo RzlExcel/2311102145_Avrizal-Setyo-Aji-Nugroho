@@ -719,7 +719,13 @@ int main() {
 Program diatas adalah program yang menggunakan daftar terkait dalam bahasa C++ untuk mengelola data mahasiswa. Ini memungkinkan user memasukkan data, menambahkan data di depan, di tengah, dan di belakang, menghapus data berdasarkan nama, dan menampilkan seluruh data. Setelah data dimasukkan, user  dapat memilih beberapa operasi dari menu, dan program akan menjalankan operasi sesuai dengan pilihan user.
 ## Unguided 
 
-### 2. Buat dan jelaskan progaram menggunakan fungsi map dan jelaskan perbedaan dari array map
+### 2. Soal mengenai Double Linked List
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/fd1238b5-e3eb-4aff-ad14-06c56679390b)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/1e43aa28-53e1-43cd-a767-a3065e2bb652)
+
+
+
+
 
 ```C++
 /*
