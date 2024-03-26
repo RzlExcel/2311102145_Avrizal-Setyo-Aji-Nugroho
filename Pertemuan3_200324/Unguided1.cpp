@@ -5,19 +5,14 @@
 #include <iostream>
 using namespace std;
 
-class Node {
-public:
-    string nama;
-    int usia;
+// Node struct untuk merepresentasikan node dalam linked list
+struct Node {
+    string nama_149;
+    int usia_149;
     Node* next;
-
-    Node(string nama, int usia) {
-        this->nama = nama;
-        this->usia = usia;
-        this->next = nullptr;
-    }
 };
 
+// Kelas untuk mengelola linked list
 class LinkedList {
 private:
     Node* head;
@@ -27,117 +22,228 @@ public:
         head = nullptr;
     }
 
-    void tambahDepan(string nama, int usia) {
-        Node* newNode = new Node(nama, usia);
+    ~LinkedList() {
+        Node* current = head;
+        while (current != nullptr) {
+            Node* next = current->next;
+            delete current;
+            current = next;
+        }
+        head = nullptr;
+    }
+
+    // Fungsi untuk menambahkan node di depan
+    void insertFront(string nama_149, int usia_149) {
+        Node* newNode = new Node;
+        newNode->nama_149 = nama_149;
+        newNode->usia_149 = usia_149;
         newNode->next = head;
         head = newNode;
     }
 
-    void tambahBelakang(string nama, int usia) {
-        Node* newNode = new Node(nama, usia);
+    // Fungsi untuk menambahkan node di belakang
+    void insertBack(string nama_149, int usia_149) {
+        Node* newNode = new Node;
+        newNode->nama_149 = nama_149;
+        newNode->usia_149 = usia_149;
+        newNode->next = nullptr;
         if (head == nullptr) {
             head = newNode;
             return;
         }
-        Node* last = head;
-        while (last->next != nullptr) {
-            last = last->next;
-        }
-        last->next = newNode;
-    }
-
-    void tambahTengah(string nama, int usia, string namaSebelum) {
-        Node* newNode = new Node(nama, usia);
         Node* current = head;
-        while (current != nullptr) {
-            if (current->nama == namaSebelum) {
-                newNode->next = current->next;
-                current->next = newNode;
-                return;
-            }
+        while (current->next != nullptr) {
             current = current->next;
         }
-        cout << "Data sebelumnya tidak ditemukan." << endl;
+        current->next = newNode;
     }
 
-    void hapusData(string nama) {
-        Node* current = head;
-        Node* prev = nullptr;
-        if (current != nullptr && current->nama == nama) {
-            head = current->next;
-            delete current;
+    // Fungsi untuk menambahkan node di tengah
+    void insertMiddle(string nama_149, int usia_149, int posisi) {
+        if (posisi <= 0) {
+            cout << "Posisi harus lebih besar dari 0" << endl;
             return;
         }
-        while (current != nullptr && current->nama != nama) {
-            prev = current;
+        if (posisi == 1) {
+            insertFront(nama_149, usia_149);
+            return;
+        }
+        Node* newNode = new Node;
+        newNode->nama_149 = nama_149;
+        newNode->usia_149 = usia_149;
+        Node* current = head;
+        for (int i = 1; i < posisi - 1 && current != nullptr; ++i) {
             current = current->next;
         }
         if (current == nullptr) {
-            cout << "Data tidak ditemukan." << endl;
+            cout << "Posisi terlalu besar" << endl;
             return;
         }
-        prev->next = current->next;
-        delete current;
+        newNode->next = current->next;
+        current->next = newNode;
     }
 
-    void ubahData(string namaLama, string namaBaru, int usiaBaru) {
+    // Fungsi untuk mencari node berdasarkan nama
+    Node* search(string nama_149) {
         Node* current = head;
         while (current != nullptr) {
-            if (current->nama == namaLama) {
-                current->nama = namaBaru;
-                current->usia = usiaBaru;
+            if (current->nama_149 == nama_149) {
+                return current;
+            }
+            current = current->next;
+        }
+        return nullptr;
+    }
+
+    // Fungsi untuk menghapus node berdasarkan nama
+    void remove(string nama_149) {
+        if (head == nullptr) {
+            return;
+        }
+        if (head->nama_149 == nama_149) {
+            Node* temp = head;
+            head = head->next;
+            delete temp;
+            return;
+        }
+        Node* current = head;
+        while (current->next != nullptr) {
+            if (current->next->nama_149 == nama_149) {
+                Node* temp = current->next;
+                current->next = current->next->next;
+                delete temp;
                 return;
             }
             current = current->next;
         }
-        cout << "Data tidak ditemukan." << endl;
     }
 
-    void tampilkanData() {
+    // Fungsi untuk menampilkan seluruh data
+    void display() {
         Node* current = head;
-        cout << "Nama   Usia" << endl;
         while (current != nullptr) {
-            cout << current->nama << " " << current->usia << endl;
+            cout << current->nama_149 << " " << current->usia_149 << endl;
             current = current->next;
         }
     }
 };
 
 int main() {
-    LinkedList linkedList;
+    LinkedList list;
 
-    // Data pertama (nama dan usia Anda)
-    string namaAnda;
-    int usiaAnda;
+    // Input data pengguna
+    string namaSaya;
+    int usiaSaya;
+
+    // Input data pengguna sendiri
     cout << "Masukkan nama Anda: ";
-    cin >> namaAnda;
+    getline(cin, namaSaya);
     cout << "Masukkan usia Anda: ";
-    cin >> usiaAnda;
-    linkedList.tambahDepan(namaAnda, usiaAnda);
+    cin >> usiaSaya;
+    cin.ignore(); // Membersihkan newline dari buffer stdin
 
-    // a. Menambahkan data sesuai urutan
-    linkedList.tambahBelakang("John", 19);
-    linkedList.tambahBelakang("Jane", 20);
-    linkedList.tambahBelakang("Michael", 18);
-    linkedList.tambahBelakang("Yusuke", 19);
-    linkedList.tambahBelakang("Akechi", 20);
-    linkedList.tambahBelakang("Hoshino", 18);
-    linkedList.tambahBelakang("Karin", 18);
+    // Masukkan data pengguna ke dalam linked list
+    list.insertFront(namaSaya, usiaSaya);
 
-    // b. Menghapus data Akechi
-    linkedList.hapusData("Akechi");
+    // Input data nama dan usia mahasiswa lain dari pengguna
+    int jumlahMahasiswa;
+    cout << "Masukkan jumlah mahasiswa lain: ";
+    cin >> jumlahMahasiswa;
+    cin.ignore(); // Membersihkan newline dari buffer stdin
 
-    // c. Menambahkan data Futaba di antara John dan Jane
-    linkedList.tambahTengah("Futaba", 18, "John");
+    for (int i = 0; i < jumlahMahasiswa; ++i) {
+        string namaMahasiswa;
+        int usiaMahasiswa;
 
-    // d. Menambahkan data Igor di awal
-    linkedList.tambahDepan("Igor", 20);
+        cout << "Masukkan nama mahasiswa ke-" << i+1 << ": ";
+        getline(cin, namaMahasiswa);
+        cout << "Masukkan usia mahasiswa ke-" << i+1 << ": ";
+        cin >> usiaMahasiswa;
+        cin.ignore(); // Membersihkan newline dari buffer stdin
 
-    // e. Mengubah data Michael menjadi Reyn
-    linkedList.ubahData("Michael", "Reyn", 18);
+        list.insertBack(namaMahasiswa, usiaMahasiswa);
+    }
 
-    // f. Menampilkan seluruh data
-    linkedList.tampilkanData();
+    // Tampilkan seluruh data
+    cout << "Data mahasiswa:" << endl;
+    list.display();
+    cout << endl;
+
+    // Menu operasi
+    while(true){
+    int opsi;
+    cout << "Menu Operasi:" << endl;
+    cout << "1. Hapus data mahasiswa" << endl;
+    cout << "2. Tambahkan data mahasiswa di depan" << endl;
+    cout << "3. Tambahkan data mahasiswa di tengah" << endl;
+    cout << "4. Tambahkan data mahasiswa di belakang" << endl;
+    cout << "5. Tampilkan data" << endl;
+    cout << "6. Keluar" << endl;
+    cout << "Pilih opsi : ";
+    cin >> opsi;
+    cin.ignore(); // Membersihkan newline dari buffer stdin
+
+    // Proses operasi sesuai dengan opsi yang dipilih
+    switch (opsi) {
+        case 1: {
+            string namaHapus;
+            cout << "Masukkan nama mahasiswa yang ingin dihapus: ";
+            getline(cin, namaHapus);
+            list.remove(namaHapus);
+            break;
+        }
+        case 2: {
+            string namaTambahDepan;
+            int usiaTambahDepan;
+            cout << "Masukkan nama mahasiswa yang ingin ditambahkan di depan: ";
+            getline(cin, namaTambahDepan);
+            cout << "Masukkan usia mahasiswa yang ingin ditambahkan di depan: ";
+            cin>> usiaTambahDepan;
+            cin.ignore(); 
+            // Membersihkan newline dari buffer stdin
+            list.insertFront(namaTambahDepan, usiaTambahDepan);
+            break;
+        }
+        case 3: {
+            string namaTambahTengah;
+            int usiaTambahTengah;
+            int posisiTambahTengah;
+            cout << "Masukkan nama mahasiswa yang ingin ditambahkan di tengah: ";
+            getline(cin, namaTambahTengah);
+            cout << "Masukkan usia mahasiswa yang ingin ditambahkan di tengah: ";
+            cin >> usiaTambahTengah;
+            cout << "Masukkan posisi untuk menambahkan mahasiswa di tengah: ";
+            cin >> posisiTambahTengah;
+            cin.ignore(); // Membersihkan newline dari buffer stdin
+            list.insertMiddle(namaTambahTengah, usiaTambahTengah, posisiTambahTengah);
+            break;
+        }
+        case 4: {
+            string namaTambahBelakang;
+            int usiaTambahBelakang;
+            cout << "Masukkan nama mahasiswa yang ingin ditambahkan di belakang: ";
+            getline(cin, namaTambahBelakang);
+            cout << "Masukkan usia mahasiswa yang ingin ditambahkan di belakang: ";
+            cin >> usiaTambahBelakang;
+            cin.ignore(); // Membersihkan newline dari buffer stdin
+            list.insertBack(namaTambahBelakang, usiaTambahBelakang);
+            break;
+        }
+        case 5: {
+            cout << "Data mahasiswa setelah operasi:" << endl;
+            list.display();
+            break;
+        }
+        case 6 : {
+            cout<<"Anda telah keluar dari menu!"<<endl;
+            exit(0);
+        }
+        default:
+            cout << "Opsi tidak valid" << endl;
+    
+    }
+    }
 
     return 0;
+
 }

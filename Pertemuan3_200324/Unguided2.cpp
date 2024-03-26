@@ -1,3 +1,7 @@
+/*
+    Avrizal Setyo Aji Nugroho
+    2311102145
+*/
 #include <iostream>
 using namespace std;
 
@@ -9,7 +13,6 @@ public:
     Node* prev;
     Node* next;
 
-    // Konstruktor
     Node(string nama, int hrg) : nama_produk(nama), harga(hrg), prev(nullptr), next(nullptr) {}
 };
 
@@ -18,10 +21,9 @@ class DoubleLinkedList {
 public:
     Node* head;
 
-    // Konstruktor
     DoubleLinkedList() : head(nullptr) {}
 
-    // Method untuk menambah data di akhir
+    // fungsi untuk menambahkan data
     void tambahData(string nama_produk, int harga) {
         Node* new_node = new Node(nama_produk, harga);
         if (!head) {
@@ -36,7 +38,7 @@ public:
         }
     }
 
-    // Method untuk menghapus data berdasarkan nama produk
+    // fungsi untuk menghapus data produk yang dipilih
     void hapusData(string nama_produk) {
         Node* current = head;
         while (current) {
@@ -57,7 +59,7 @@ public:
         }
     }
 
-    // Method untuk mengupdate data berdasarkan nama produk
+    // fungsi untuk mengupdate data berdasarkan nama produk
     void updateData(string nama_produk, string nama_baru, int harga_baru) {
         Node* current = head;
         while (current) {
@@ -70,7 +72,7 @@ public:
         }
     }
 
-    // Method untuk menambah data di urutan tertentu
+    // fungsi untuk menambah data di urutan tertentu
     void tambahDataUrutanTertentu(string nama_produk, int harga, string nama_setelah) {
         Node* new_node = new Node(nama_produk, harga);
         Node* current = head;
@@ -87,23 +89,69 @@ public:
             current = current->next;
         }
     }
+        // fungsi untuk menghapus data berdasarkan posisi
+    void hapusDataTertentu(int posisi) {
+        if (posisi <= 0) {
+            cout << "Posisi harus lebih dari 0" << endl;
+            return;
+        }
 
-    // Method untuk menampilkan data
+        Node* current = head;
+        int counter = 1;
+
+        while (current && counter < posisi) {
+            current = current->next;
+            counter++;
+        }
+
+        if (!current) {
+            cout << "Posisi melebihi panjang list" << endl;
+            return;
+        }
+
+        if (current->prev) {
+            current->prev->next = current->next;
+        }
+        if (current->next) {
+            current->next->prev = current->prev;
+        }
+        if (current == head) {
+            head = current->next;
+        }
+
+        delete current;
+    }
+
+
+    // fungsi untuk menampilkan data
     void tampilkanData() {
         Node* current = head;
+        int NoUrut = 1;
         cout << "Nama Produk\tHarga" << endl;
         while (current) {
-            cout << current->nama_produk << "\t\t" << current->harga << endl;
+            cout << NoUrut<< ".\t"<< current->nama_produk << "\t\t" << current->harga << endl;
             current = current->next;
+            NoUrut++;
         }
     }
+    // fungsi untuk menghapus semua data
+    void hapusSemuaData() {
+        Node* current = head;
+        while (current) {
+            Node* temp = current;
+            current = current->next;
+            delete temp;
+        }
+        head = nullptr;
+    }
+
 };
 
 int main() {
     // Inisialisasi double linked list
     DoubleLinkedList dll;
 
-    // Tambahkan data awal
+    // data awal
     dll.tambahData("Originote", 60000);
     dll.tambahData("Somethinc", 150000);
     dll.tambahData("Skintific", 100000);
@@ -170,13 +218,15 @@ int main() {
                 break;
             }
             case 5: {
-                // Untuk kasus ini, karena tidak disebutkan dalam deskripsi, saya akan membiarkannya kosong
-                cout << "Menu belum diimplementasikan" << endl;
+                int posisi;
+                cout << "Masukkan posisi data yang ingin dihapus: ";
+                cin >> posisi;
+                dll.hapusDataTertentu(posisi);
                 break;
             }
             case 6: {
-                // Untuk kasus ini, karena tidak disebutkan dalam deskripsi, saya akan membiarkannya kosong
-                cout << "Menu belum diimplementasikan" << endl;
+                dll.hapusSemuaData();
+                 cout << "Semua produk telah dihapus" << endl;
                 break;
             }
             case 7: {
