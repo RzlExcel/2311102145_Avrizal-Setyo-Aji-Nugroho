@@ -9,7 +9,20 @@ Single Linked List adalah jenis Linked List yang hanya menggunakan satu pointer
 Double Linked List hanya memiliki satu pointer untuk menghubungkan node dari node pertama hingga terakhir. Namun, ada dua pointer, pointer next dan pointer prev, yang menunjuk ke node berikutnya dan sebelumnya. Struktur ini memungkinkan Linked List yang dihubungkan untuk bergerak di depan dan belakang.
 
 ![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/624613f7-c85f-4170-9e8c-a69c97837b9e)
-
+Single linked list dan double linked list memiliki kelebihan dan kekurangan yang berbeda.
+Single linked list:
+Kelebihan:
+-Memiliki pointer hanya ke node berikutnya, yang membuatnya lebih mudah untuk dibangun dan dikelola.
+-Memiliki lebih sedikit pointer, yang membuatnya lebih efisien dalam penggunaan memori.
+Kekurangan:
+-Hanya dapat bergerak dalam satu arah saja.
+Double linked list:
+Kelebihan:
+-Memiliki pointer ke node sebelumnya dan ke node berikutnya, yang memungkinkan linked list dapat melintas baik di depan maupun belakang.
+-Memiliki dua pointer, yang memungkinkan untuk melakukan operasi insert dan delete lebih mudah.
+Kekurangan:
+-Memiliki lebih banyak pointer, yang membuatnya lebih rumit dalam penggunaan dan pengelolaan.
+-Membutuhkan lebih banyak perubahan pointer saat melakukan modifikasi
 
 
 ## Guided 
