@@ -2,7 +2,7 @@
 <p align="center">Avrizal Setyo Aji Nugroho</p>
 <p align="center">2311102145</p>
 
-## Dasar Teori belom selese
+## Dasar Teori 
 
 Single Linked List adalah jenis Linked List yang hanya menggunakan satu pointer untuk menghubungkan node dari node pertama hingga terakhir, dengan pointer terakhir menunjuk ke NULL. Dalam arti sederhana, Single Linked List adalah sebuah kumpulan data yang terbatas, sekuensial, dinamis, dan memiliki pointer untuk node berikutnya.
 
@@ -979,4 +979,5 @@ Sebuah program dalam bahasa C++ yang disebutkan di atas menggunakan struktur dat
 ## Kesimpulan
 Single linked list adalah daftar di mana setiap elemen hanya memiliki koneksi ke elemen berikutnya, memudahkan penambahan dan penghapusan di awal tetapi sulit untuk mengakses elemen secara terbalik. Di sisi lain, double linked list memiliki koneksi maju dan mundur, memungkinkan navigasi dua arah. Meskipun double linked list membutuhkan lebih banyak memori karena setiap elemen memiliki dua koneksi, ini memudahkan operasi seperti penghapusan atau penambahan di tengah list. Pilihan antara keduanya tergantung pada kebutuhan aplikasi, dengan single linked list lebih cocok untuk navigasi satu arah dan double linked list lebih sesuai untuk navigasi maju dan mundur.
 ## Referensi
-[1] I. Holm, Narrator, and J. Fullerton-Smith, Producer, How to Build a Human [DVD]. London: BBC; 2002.
+[1] Abu Sara, M. R., Klaib, M. F. J., & Hasan, M. (2021). Hybrid Array List: An Efficient Dynamic Array with Linked List Structure. Indonesia Journal on Computing (Indo-JC), 5(3), 47-62
+[2]Yan, S., Zhang, E., Guo, J., Jia, P., Yang, K., & Kong, L. (2022). Eyebox uniformity optimization over the full field of view for optical waveguide displays based on linked list processing. Optics Express, 30(21), 38139-38151.
