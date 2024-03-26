@@ -258,7 +258,7 @@ int main() {
 }
 
 ```
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
+Program di atas adalah aplikasi linked list dalam C++. Linked list adalah struktur data yang digunakan untuk menyimpan data secara otomatis dalam memori komputer. Dalam list yang terhubung, setiap elemen disebut sebagai "node", dan setiap node terdiri dari dua komponen utama: data dan pointer yang menunjuk ke node berikutnya dalam list. Program ini memungkinkan Anda menambah, menghapus, dan mengubah data pada daftar terkait, dan juga menampilkan isi daftar setelah setiap operasi dilakukan. Anda dapat, misalnya, menambahkan data ke depan atau belakang daftar terkait, menghapus data dari depan, belakang, atau dari posisi tertentu, dan mengubah data pada posisi tertentu. Hasil dari setiap operasi ditampilkan, sehingga pengguna dapat melihat bagaimana operasi tersebut berdampak pada daftar terkait.
 
 ## Guided 
 
