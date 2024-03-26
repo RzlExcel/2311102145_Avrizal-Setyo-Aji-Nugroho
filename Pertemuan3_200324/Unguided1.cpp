@@ -7,8 +7,8 @@ using namespace std;
 
 // Node struct untuk merepresentasikan node dalam linked list
 struct Node {
-    string nama_149;
-    int usia_149;
+    string nama_145;
+    int usia_145;
     Node* next;
 };
 
@@ -33,19 +33,19 @@ public:
     }
 
     // Fungsi untuk menambahkan node di depan
-    void insertFront(string nama_149, int usia_149) {
+    void insertFront(string nama_145, int usia_145) {
         Node* newNode = new Node;
-        newNode->nama_149 = nama_149;
-        newNode->usia_149 = usia_149;
+        newNode->nama_145 = nama_145;
+        newNode->usia_145 = usia_145;
         newNode->next = head;
         head = newNode;
     }
 
     // Fungsi untuk menambahkan node di belakang
-    void insertBack(string nama_149, int usia_149) {
+    void insertBack(string nama_145, int usia_145) {
         Node* newNode = new Node;
-        newNode->nama_149 = nama_149;
-        newNode->usia_149 = usia_149;
+        newNode->nama_145 = nama_145;
+        newNode->usia_145 = usia_145;
         newNode->next = nullptr;
         if (head == nullptr) {
             head = newNode;
@@ -59,18 +59,18 @@ public:
     }
 
     // Fungsi untuk menambahkan node di tengah
-    void insertMiddle(string nama_149, int usia_149, int posisi) {
+    void insertMiddle(string nama_145, int usia_145, int posisi) {
         if (posisi <= 0) {
             cout << "Posisi harus lebih besar dari 0" << endl;
             return;
         }
         if (posisi == 1) {
-            insertFront(nama_149, usia_149);
+            insertFront(nama_145, usia_145);
             return;
         }
         Node* newNode = new Node;
-        newNode->nama_149 = nama_149;
-        newNode->usia_149 = usia_149;
+        newNode->nama_145 = nama_145;
+        newNode->usia_145 = usia_145;
         Node* current = head;
         for (int i = 1; i < posisi - 1 && current != nullptr; ++i) {
             current = current->next;
@@ -84,10 +84,10 @@ public:
     }
 
     // Fungsi untuk mencari node berdasarkan nama
-    Node* search(string nama_149) {
+    Node* search(string nama_145) {
         Node* current = head;
         while (current != nullptr) {
-            if (current->nama_149 == nama_149) {
+            if (current->nama_145 == nama_145) {
                 return current;
             }
             current = current->next;
@@ -96,11 +96,11 @@ public:
     }
 
     // Fungsi untuk menghapus node berdasarkan nama
-    void remove(string nama_149) {
+    void remove(string nama_145) {
         if (head == nullptr) {
             return;
         }
-        if (head->nama_149 == nama_149) {
+        if (head->nama_145 == nama_145) {
             Node* temp = head;
             head = head->next;
             delete temp;
@@ -108,7 +108,7 @@ public:
         }
         Node* current = head;
         while (current->next != nullptr) {
-            if (current->next->nama_149 == nama_149) {
+            if (current->next->nama_145 == nama_145) {
                 Node* temp = current->next;
                 current->next = current->next->next;
                 delete temp;
@@ -122,7 +122,7 @@ public:
     void display() {
         Node* current = head;
         while (current != nullptr) {
-            cout << current->nama_149 << " " << current->usia_149 << endl;
+            cout << current->nama_145 << " " << current->usia_145 << endl;
             current = current->next;
         }
     }
@@ -132,18 +132,18 @@ int main() {
     LinkedList list;
 
     // Input data pengguna
-    string namaSaya;
-    int usiaSaya;
+    string namaSaya145;
+    int usiaSaya145;
 
     // Input data pengguna sendiri
     cout << "Masukkan nama Anda: ";
-    getline(cin, namaSaya);
+    getline(cin, namaSaya145);
     cout << "Masukkan usia Anda: ";
-    cin >> usiaSaya;
+    cin >> usiaSaya145;
     cin.ignore(); // Membersihkan newline dari buffer stdin
 
     // Masukkan data pengguna ke dalam linked list
-    list.insertFront(namaSaya, usiaSaya);
+    list.insertFront(namaSaya145, usiaSaya145);
 
     // Input data nama dan usia mahasiswa lain dari pengguna
     int jumlahMahasiswa;
@@ -152,16 +152,16 @@ int main() {
     cin.ignore(); // Membersihkan newline dari buffer stdin
 
     for (int i = 0; i < jumlahMahasiswa; ++i) {
-        string namaMahasiswa;
-        int usiaMahasiswa;
+        string namaMahasiswa145;
+        int usiaMahasiswa145;
 
         cout << "Masukkan nama mahasiswa ke-" << i+1 << ": ";
-        getline(cin, namaMahasiswa);
+        getline(cin, namaMahasiswa145);
         cout << "Masukkan usia mahasiswa ke-" << i+1 << ": ";
-        cin >> usiaMahasiswa;
+        cin >> usiaMahasiswa145;
         cin.ignore(); // Membersihkan newline dari buffer stdin
 
-        list.insertBack(namaMahasiswa, usiaMahasiswa);
+        list.insertBack(namaMahasiswa145, usiaMahasiswa145);
     }
 
     // Tampilkan seluruh data

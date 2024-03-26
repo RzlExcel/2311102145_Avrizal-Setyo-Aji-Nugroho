@@ -8,12 +8,12 @@ using namespace std;
 // Deklarasi class Node
 class Node {
 public:
-    string nama_produk;
-    int harga;
+    string nama_produk145;
+    int harga145;
     Node* prev;
     Node* next;
 
-    Node(string nama, int hrg) : nama_produk(nama), harga(hrg), prev(nullptr), next(nullptr) {}
+    Node(string nama, int hrg) : nama_produk145(nama), harga145(hrg), prev(nullptr), next(nullptr) {}
 };
 
 // Deklarasi class DoubleLinkedList
@@ -24,8 +24,8 @@ public:
     DoubleLinkedList() : head(nullptr) {}
 
     // fungsi untuk menambahkan data
-    void tambahData(string nama_produk, int harga) {
-        Node* new_node = new Node(nama_produk, harga);
+    void tambahData(string nama_produk145, int harga145) {
+        Node* new_node = new Node(nama_produk145, harga145);
         if (!head) {
             head = new_node;
         } else {
@@ -39,10 +39,10 @@ public:
     }
 
     // fungsi untuk menghapus data produk yang dipilih
-    void hapusData(string nama_produk) {
+    void hapusData(string nama_produk145) {
         Node* current = head;
         while (current) {
-            if (current->nama_produk == nama_produk) {
+            if (current->nama_produk145 == nama_produk145) {
                 if (current->prev) {
                     current->prev->next = current->next;
                 }
@@ -60,12 +60,12 @@ public:
     }
 
     // fungsi untuk mengupdate data berdasarkan nama produk
-    void updateData(string nama_produk, string nama_baru, int harga_baru) {
+    void updateData(string nama_produk145, string nama_baru, int harga_baru) {
         Node* current = head;
         while (current) {
-            if (current->nama_produk == nama_produk) {
-                current->nama_produk = nama_baru;
-                current->harga = harga_baru;
+            if (current->nama_produk145 == nama_produk145) {
+                current->nama_produk145 = nama_baru;
+                current->harga145 = harga_baru;
                 return;
             }
             current = current->next;
@@ -73,11 +73,11 @@ public:
     }
 
     // fungsi untuk menambah data di urutan tertentu
-    void tambahDataUrutanTertentu(string nama_produk, int harga, string nama_setelah) {
-        Node* new_node = new Node(nama_produk, harga);
+    void tambahDataUrutanTertentu(string nama_produk145, int harga145, string nama_setelah) {
+        Node* new_node = new Node(nama_produk145, harga145);
         Node* current = head;
         while (current) {
-            if (current->nama_produk == nama_setelah) {
+            if (current->nama_produk145 == nama_setelah) {
                 new_node->next = current->next;
                 if (current->next) {
                     current->next->prev = new_node;
@@ -129,7 +129,7 @@ public:
         int NoUrut = 1;
         cout << "Nama Produk\tHarga" << endl;
         while (current) {
-            cout << NoUrut<< ".\t"<< current->nama_produk << "\t\t" << current->harga << endl;
+            cout << NoUrut<< ".\t"<< current->nama_produk145 << "\t\t" << current->harga145 << endl;
             current = current->next;
             NoUrut++;
         }
@@ -176,45 +176,45 @@ int main() {
 
         switch (pilihan) {
             case 1: {
-                string nama_produk;
-                int harga;
+                string nama_produk145;
+                int harga145;
                 cout << "Masukkan nama produk: ";
-                cin >> nama_produk;
+                cin >> nama_produk145;
                 cout << "Masukkan harga: ";
-                cin >> harga;
-                dll.tambahData(nama_produk, harga);
+                cin >> harga145;
+                dll.tambahData(nama_produk145, harga145);
                 break;
             }
             case 2: {
-                string nama_produk;
+                string nama_produk145;
                 cout << "Masukkan nama produk yang ingin dihapus: ";
-                cin >> nama_produk;
-                dll.hapusData(nama_produk);
+                cin >> nama_produk145;
+                dll.hapusData(nama_produk145);
                 break;
             }
             case 3: {
-                string nama_produk, nama_baru;
+                string nama_produk145, nama_baru;
                 int harga_baru;
                 cout << "Masukkan nama produk yang ingin diupdate: ";
-                cin >> nama_produk;
+                cin >> nama_produk145;
                 cout << "Masukkan nama baru: ";
                 cin >> nama_baru;
                 cout << "Masukkan harga baru: ";
                 cin >> harga_baru;
-                dll.updateData(nama_produk, nama_baru, harga_baru);
+                dll.updateData(nama_produk145, nama_baru, harga_baru);
                 break;
             }
             case 4: {
-                string nama_produk;
-                int harga;
+                string nama_produk145;
+                int harga145;
                 string nama_setelah;
                 cout << "Masukkan nama produk yang ingin ditambahkan: ";
-                cin >> nama_produk;
+                cin >> nama_produk145;
                 cout << "Masukkan harga: ";
-                cin >> harga;
+                cin >> harga145;
                 cout << "Masukkan nama produk setelahnya: ";
                 cin >> nama_setelah;
-                dll.tambahDataUrutanTertentu(nama_produk, harga, nama_setelah);
+                dll.tambahDataUrutanTertentu(nama_produk145, harga145, nama_setelah);
                 break;
             }
             case 5: {
