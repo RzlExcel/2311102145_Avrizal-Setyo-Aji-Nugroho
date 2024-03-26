@@ -422,7 +422,24 @@ Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktika
 
 ## Unguided 
 
-### 1. Buatlah program menggunakan tipe data primitif minimal dua fungsi dan bebas.Menampilkan program, jelaskan program tersebut dan ambil kesimpulan dari materi tipe data primitif!
+### 1. Soal mengenai Single Linked List 
+### Buatlah program menu Single Linked List Non-Circular untuk
+### menyimpan Nama dan usia mahasiswa, dengan menggunakan inputan dari user. Lakukan operasi berikut:
+### a. Masukkan data sesuai urutan berikut. (Gunakan insert depan, belakang atau tengah). Data pertama yang dimasukkan adalah nama dan usia anda.
+### [Nama_anda] [Usia_anda]
+### John 19
+### Jane 20
+### Michael 18
+### Yusuke 19
+### Akechi 20
+### Hoshino 18
+### Karin 18
+### b. Hapus data Akechi
+### c. Tambahkan data berikut diantara John dan Jane : Futaba 18
+### d. Tambahkan data berikut diawal : Igor 20
+### e. Ubah data Michael menjadi : Reyn 18
+### f. Tampilkan seluruh data
+
 
 ```C++
 /*
@@ -681,8 +698,7 @@ int main() {
 ![Unguided1](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan3_200324/Unguided1md3pt3.png?raw=true)
 ![Unguided1](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/blob/main/Pertemuan3_200324/Unguided1md3pt4.png?raw=true)
 
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
-
+Program diatas adalah program yang menggunakan daftar terkait dalam bahasa C++ untuk mengelola data mahasiswa. Ini memungkinkan user memasukkan data, menambahkan data di depan, di tengah, dan di belakang, menghapus data berdasarkan nama, dan menampilkan seluruh data. Setelah data dimasukkan, user  dapat memilih beberapa operasi dari menu, dan program akan menjalankan operasi sesuai dengan pilihan user.
 ## Unguided 
 
 ### 2. Buat dan jelaskan progaram menggunakan fungsi map dan jelaskan perbedaan dari array map
