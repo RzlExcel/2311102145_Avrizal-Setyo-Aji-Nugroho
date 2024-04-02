@@ -102,6 +102,12 @@ Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktika
 ## Unguided 
 
 ### 1. Buatlah program menu Linked List Non Circular untuk menyimpan Nama dan NIM mahasiswa, dengan menggunakan input dari user.
+![Screenshot 2024-04-02 204643](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/88789fe5-7ba2-4bda-a8dc-d39a7e8a3097)
+![Screenshot 2024-04-02 204707](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/ad6cd9a7-efe3-4a66-aca1-641e8e28ecbd)
+![Screenshot 2024-04-02 204719](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/b75433d1-40a2-4f81-94e9-d17579562cd6)
+
+
+
 
 ```C++
 /*
