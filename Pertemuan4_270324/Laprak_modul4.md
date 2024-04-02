@@ -6,7 +6,8 @@
 
 ## Dasar Teori
 
-
+Linked List Circular (LLC) adalah jenis Linked List yang memiliki pointer next yang menunjuk pada dirinya sendiri, sehingga berputar. Setiap node pada linked list mempunyai field yang berisi pointer ke node berikutnya dan juga memiliki field yang berisi data. Pada akhir linked list, node terakhir akan menunjuk ke node terdepan sehingga linked list tersebut berputar. Node terakhir akan menunjuk lagi ke head.
+Linked List Non Circular (SLLNC) adalah jenis Linked List yang pointer next pada node terakhir akan menunjuk ke NULL. Pada node terakhir/ekor yang semula menunjuk ke NULL, akan diganti menjadi pointer ke head.
 
 
 ## Guided 
@@ -543,4 +544,4 @@ Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktika
 ## Kesimpulan
 linked list circular adalah jenis linked list di mana elemen terakhir menunjuk kembali ke elemen pertama, membentuk lingkaran tanpa titik akhir yang jelas, yang menghilangkan kebutuhan akan pointer nullptr. Linked list circular sering digunakan untuk keperluan tertentu seperti buffering dan pemrograman terdistribusi.
 ## Referensi
-[1] I. Holm, Narrator, and J. Fullerton-Smith, Producer, How to Build a Human [DVD]. London: BBC; 2002.
+[1] GeeksforGeeks. (2023, November 14). Circular Linked List. Retrieved from https://www.geeksforgeeks.org/circular-linked-list/
