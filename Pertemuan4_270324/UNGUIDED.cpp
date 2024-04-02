@@ -1,3 +1,7 @@
+/*
+    Avrizal Setyo Aji Nugroho
+    2311102145
+*/
 #include <iostream>
 using namespace std;
 
