@@ -342,8 +342,8 @@ Program diatas adalah implementasi dari struktur data linked list non-circular m
 ## Guided 
 
 ### 2. Linked List Circular 
-
-``#include <iostream>
+```C++
+#include <iostream>
 using namespace std;
 
 // Deklarasi Struct Node
