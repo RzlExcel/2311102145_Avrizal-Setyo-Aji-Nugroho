@@ -8,97 +8,609 @@
 
 Linked List Circular (LLC) adalah jenis Linked List yang memiliki pointer next yang menunjuk pada dirinya sendiri, sehingga berputar. Setiap node pada linked list mempunyai field yang berisi pointer ke node berikutnya dan juga memiliki field yang berisi data. Pada akhir linked list, node terakhir akan menunjuk ke node terdepan sehingga linked list tersebut berputar. Node terakhir akan menunjuk lagi ke head.
 Linked List Non Circular (SLLNC) adalah jenis Linked List yang pointer next pada node terakhir akan menunjuk ke NULL. Pada node terakhir/ekor yang semula menunjuk ke NULL, akan diganti menjadi pointer ke head.
+# Linked List Non-Circular:
+
+Kelebihan:
+
+-Lebih mudah diimplementasikan.<br>
+-Lebih hemat memori.<br>
+<br>Kekurangan:<br>
+
+-Pencarian data kurang efisien.<br>
+-Penghapusan node di awal rumit.<br>
+# Linked List Circular:<br>
+
+Kelebihan:<br>
+
+-Pencarian data lebih efisien.<br>
+-Penghapusan node di awal mudah.<br>
+<br>Kekurangan:<br>
+
+-Lebih rumit diimplementasikan.<br>
+-Membutuhkan memori lebih banyak.<br>
 
 
 ## Guided 
 
-### 1. Linked List Non Circular blm
-
+### 1. Linked List Non Circular 
 ```C++
 #include <iostream>
-#include <iomanip>
-
 using namespace std;
-// Tipe Data Primitif
-int main (){
-    char op;
-    float num1, num2;
-
-    cout<< "Enter operator (+, -, *, /): ";
-    cin >> op;
-
-    cout << "enter two oprands: ";
-    cin >> num1 >> num2;
-
-    switch (op)
+/// PROGRAM SINGLE LINKED LIST NON-CIRCULAR
+// Deklarasi Struct Node
+struct Node
+{
+    int data;
+    Node *next;
+};
+Node *head;
+Node *tail;
+// Inisialisasi Node
+void init()
+{
+    head = NULL;
+    tail = NULL;
+}
+// Pengecekan
+bool isEmpty()
+{
+    if (head == NULL)
+        return true;
+    else
+        return false;
+}
+// Tambah Depan
+void insertDepan(int nilai)
+{
+    // Buat Node baru
+    Node *baru = new Node;
+    baru->data = nilai;
+    baru->next = NULL;
+    if (isEmpty() == true)
     {
-    case '+':
-        cout << "Result: " << num1 + num2;
-        break;
-    case '-':
-        cout << "Result: " << num1 - num2;
-        break;
-     case '*':
-        cout << "Result: " << num1 * num2;
-        break;
-    case '/':
-        if (num2 != 0){
-            cout << "Result: "<< fixed << setprecision(2) << num1 / num2;
-        } else{
-            cout << "Error! Division by zero is not allowed.";
-        }
-        break;
-    default:
-    cout << "Error! Operator is not correct";
-        break;
+        head = tail = baru;
+        tail->next = NULL;
     }
+    else
+    {
+        baru->next = head;
+        head = baru;
+    }
+}
+// Tambah Belakang
+void insertBelakang(int nilai)
+{
+    // Buat Node baru
+    Node *baru = new Node;
+    baru->data = nilai;
+    baru->next = NULL;
+    if (isEmpty() == true)
+    {
+        head = tail = baru;
+        tail->next = NULL;
+    }
+    else
+    {
+        tail->next = baru;
+        tail = baru;
+    }
+}
+// Hitung Jumlah List
+int hitungList()
+{
+    Node *hitung;
+    hitung = head;
+    int jumlah = 0;
+    while (hitung != NULL)
+    {
+        jumlah++;
+        hitung = hitung->next;
+    }
+    return jumlah;
+}
+// Tambah Tengah
+void insertTengah(int data, int posisi)
+{
+    if (posisi < 1 || posisi > hitungList())
+    {
+        cout << "Posisi diluar jangkauan" << endl;
+    }
+    else if (posisi == 1)
+    {
+        cout << "Posisi bukan posisi tengah" << endl;
+    }
+    else
+    {
+        Node *baru, *bantu;
+        baru = new Node();
+        baru->data = data;
+        // tranversing
+        bantu = head;
+        int nomor = 1;
+        while (nomor < posisi - 1)
+        {
+            bantu = bantu->next;
+        }
+
+        nomor++;
+        baru->next = bantu->next;
+        bantu->next = baru;
+    }
+}
+// Hapus Depan
+void hapusDepan()
+{
+    Node *hapus;
+    if (isEmpty() == false)
+    {
+        if (head->next != NULL)
+        {
+            hapus = head;
+            head = head->next;
+        }
+        else
+        {
+            delete hapus;
+            head = tail = NULL;
+        }
+    }
+    else
+    {
+        cout << "List kosong!" << endl;
+    }
+}
+// Hapus Belakang
+void hapusBelakang()
+{
+    Node *hapus;
+    Node *bantu;
+    if (isEmpty() == false)
+    {
+        if (head != tail)
+        {
+            hapus = tail;
+            bantu = head;
+            while (bantu->next != tail)
+            {
+                bantu = bantu->next;
+            }
+            tail = bantu;
+            tail->next = NULL;
+        }
+        else
+        {
+            delete hapus;
+            head = tail = NULL;
+        }
+    }
+
+    else
+    {
+        cout << "List kosong!" << endl;
+    }
+}
+// Hapus Tengah
+void hapusTengah(int posisi)
+{
+    Node *bantu, *hapus, *sebelum;
+    if (posisi < 1 || posisi > hitungList())
+    {
+        cout << "Posisi di luar jangkauan" << endl;
+    }
+    else if (posisi == 1)
+    {
+        cout << "Posisi bukan posisi tengah" << endl;
+    }
+    else
+    {
+        int nomor = 1;
+        bantu = head;
+        while (nomor <= posisi)
+        {
+            if (nomor == posisi - 1)
+            {
+                sebelum = bantu;
+            }
+            if (nomor == posisi)
+            {
+                hapus = bantu;
+            }
+            bantu = bantu->next;
+            nomor++;
+        }
+        sebelum->next = bantu;
+        delete hapus;
+    }
+}
+// Ubah Depan
+void ubahDepan(int data)
+{
+    if (isEmpty() == 0)
+    {
+        head->data = data;
+    }
+    else
+    {
+        cout << "List masih kosong!" << endl;
+    }
+}
+// Ubah Tengah
+void ubahTengah(int data, int posisi)
+{
+    Node *bantu;
+    if (isEmpty() == 0)
+    {
+        if (posisi < 1 || posisi > hitungList())
+        {
+            cout << "Posisi di luar jangkauan" << endl;
+        }
+        else if (posisi == 1)
+        {
+        }
+        else
+        {
+            cout << "Posisi bukan posisi tengah" << endl;
+            bantu = head;
+            int nomor = 1;
+            while (nomor < posisi)
+            {
+                bantu = bantu->next;
+                nomor++;
+            }
+            bantu->data = data;
+        }
+    }
+    else
+    {
+        cout << "List masih kosong!" << endl;
+    }
+}
+// Ubah Belakang
+void ubahBelakang(int data)
+{
+    if (isEmpty() == 0)
+    {
+        tail->data = data;
+    }
+    else
+    {
+        cout << "List masih kosong!" << endl;
+    }
+}
+// Hapus List
+void clearList()
+{
+    Node *bantu, *hapus;
+    bantu = head;
+    while (bantu != NULL)
+    {
+        hapus = bantu;
+        bantu = bantu->next;
+        delete hapus;
+    }
+    head = tail = NULL;
+    cout << "List berhasil terhapus!" << endl;
+}
+// Tampilkan List
+void tampil()
+{
+    Node *bantu;
+    bantu = head;
+    if (isEmpty() == false)
+    {
+        while (bantu != NULL)
+        {
+            cout << bantu->data << ends;
+            bantu = bantu->next;
+        }
+        cout << endl;
+    }
+    else
+    {
+        cout << "List masih kosong!" << endl;
+    }
+}
+int main()
+{
+    init();
+    insertDepan(3);
+    tampil();
+    insertBelakang(5);
+    tampil();
+    insertDepan(2);
+    tampil();
+    insertDepan(1);
+    tampil();
+    hapusDepan();
+    tampil();
+    hapusBelakang();
+    tampil();
+    insertTengah(7, 2);
+    tampil();
+    hapusTengah(2);
+    tampil();
+    ubahDepan(1);
+    tampil();
+    ubahBelakang(8);
+    tampil();
+    ubahTengah(11, 2);
+    tampil();
     return 0;
 }
 ```
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
-
+Program diatas adalah implementasi dari struktur data linked list non-circular menggunakan bahasa pemrograman C++. Dalam program ini, kita dapat melakukan berbagai operasi seperti menambahkan elemen di depan atau belakang, menghapus elemen dari depan, belakang, atau tengah, serta mengubah nilai dari elemen-elemen tertentu dalam linked list. Setiap operasi ini diimplementasikan melalui fungsi-fungsi yang telah didefinisikan sebelumnya. Pada bagian main() program, dilakukan serangkaian operasi tersebut untuk menguji fungsi-fungsi tersebut, dengan menambahkan, menghapus, dan mengubah elemen-elemen dalam linked list serta menampilkan hasilnya.
 ## Guided 
 
-### 2. Linked List Circular blm
+### 2. Linked List Circular 
 
-```C++
-#include <stdio.h>
-#include <string.h>
-// Tipe data Abstrak
-// Struct
-struct Mahasiswa
+``#include <iostream>
+using namespace std;
+
+// Deklarasi Struct Node
+struct Node
 {
-char name[50];
-char address[100];
-int age;
+    string data;
+    Node *next;
 };
+
+Node *head, *tail, *baru, *bantu, *hapus;
+
+void init()
+{
+    head = NULL;
+    tail = head;
+}
+
+// Pengecekan
+int isEmpty()
+{
+    if (head == NULL)
+        return 1; // true
+    else
+        return 0; // false
+}
+
+// Buat Node Baru
+void buatNode(string data)
+{
+    baru = new Node;
+    baru->data = data;
+    baru->next = NULL;
+}
+
+// Hitung List
+int hitungList()
+{
+    bantu = head;
+    int jumlah = 0;
+    while (bantu != NULL)
+    {
+        jumlah++;
+        bantu = bantu->next;
+    }
+    return jumlah;
+}
+
+// Tambah Depan
+void insertDepan(string data)
+{
+    // Buat Node baru
+    buatNode(data);
+
+    if (isEmpty() == 1)
+    {
+        head = baru;
+        tail = head;
+        baru->next = head;
+    }
+    else
+    {
+        while (tail->next != head)
+        {
+            tail = tail->next;
+        }
+        baru->next = head;
+        head = baru;
+        tail->next = head;
+    }
+}
+
+// Tambah Belakang
+void insertBelakang(string data)
+{
+    // Buat Node baru
+    buatNode(data);
+
+    if (isEmpty() == 1)
+    {
+        head = baru;
+        tail = head;
+        baru->next = head;
+    }
+    else
+    {
+        while (tail->next != head)
+        {
+            tail = tail->next;
+        }
+        tail->next = baru;
+        baru->next = head;
+    }
+}
+
+// Tambah Tengah
+void insertTengah(string data, int posisi)
+{
+    if (isEmpty() == 1)
+    {
+        head = baru;
+        tail = head;
+        baru->next = head;
+    }
+    else
+    {
+        baru->data = data;
+        // transversing
+        int nomor = 1;
+        bantu = head;
+        while (nomor < posisi - 1)
+        {
+            bantu = bantu->next;
+            nomor++;
+        }
+        baru->next = bantu->next;
+        bantu->next = baru;
+    }
+}
+
+// Hapus Depan
+void hapusDepan()
+{
+    if (isEmpty() == 0)
+    {
+        hapus = head;
+        tail = head;
+        if (hapus->next == head)
+        {
+            head = NULL;
+            tail = NULL;
+            delete hapus;
+        }
+        else
+        {
+            while (tail->next != hapus)
+            {
+                tail = tail->next;
+            }
+            head = head->next;
+            tail->next = head;
+            hapus->next = NULL;
+            delete hapus;
+        }
+    }
+    else
+    {
+        cout << "List masih kosong!" << endl;
+    }
+}
+
+// Hapus Belakang
+void hapusBelakang()
+{
+    if (isEmpty() == 0)
+    {
+        hapus = head;
+        tail = head;
+        if (hapus->next == head)
+        {
+            head = NULL;
+            tail = NULL;
+            delete hapus;
+        }
+        else
+        {
+            while (hapus->next != head)
+            {
+                hapus = hapus->next;
+            }
+            while (tail->next != hapus)
+            {
+                tail = tail->next;
+            }
+            tail->next = head;
+            hapus->next = NULL;
+            delete hapus;
+        }
+    }
+    else
+    {
+        cout << "List masih kosong!" << endl;
+    }
+}
+
+// Hapus Tengah
+void hapusTengah(int posisi)
+{
+    if (isEmpty() == 0)
+    {
+        // transversing
+        int nomor = 1;
+        bantu = head;
+        while (nomor < posisi - 1)
+        {
+            bantu = bantu->next;
+            nomor++;
+        }
+        hapus = bantu->next;
+        bantu->next = hapus->next;
+        delete hapus;
+    }
+    else
+    {
+        cout << "List masih kosong!" << endl;
+    }
+}
+
+// Hapus List
+void clearList()
+{
+    if (head != NULL)
+    {
+        hapus = head->next;
+        while (hapus != head)
+        {
+            bantu = hapus->next;
+            delete hapus;
+            hapus = bantu;
+        }
+        delete head;
+        head = NULL;
+    }
+    cout << "List berhasil terhapus!" << endl;
+}
+
+// Tampilkan List
+void tampil()
+{
+    if (isEmpty() == 0)
+    {
+        tail = head;
+        do
+        {
+            cout << tail->data << ends;
+            tail = tail->next;
+        } while (tail != head);
+        cout << endl;
+    }
+    else
+    {
+        cout << "List masih kosong!" << endl;
+    }
+}
+
 int main()
 {
-   // Menggunakan Struct
-struct Mahasiswa mhs1, mhs2;
-// Mengisi nilai ke struct
-strcpy(mhs1.name, "Dian");
-strcpy(mhs1.address, "Mataram");
-mhs1.age = 22;
-strcpy(mhs2.name, "Bambang");
-strcpy(mhs2.address, "Surabaya");
-mhs2.age = 23;
-
-// Mencetak isi dari struct
-printf("## Mahasiswa 1 ##\n");
-printf("Nama: %s\n", mhs1.name);
-printf("Alamat: %s\n", mhs1.address);
-printf("Umur: %d\n", mhs1.age);
-printf ("\n");
-printf("## Mahasiswa 2 ##\n");
-printf("Nama: %s\n", mhs2.name);
-printf("Alamat: %s\n", mhs2.address);
-printf("Umur: %d\n", mhs2.age);
-return 0;
+    init();
+    insertDepan("Ayam");
+    tampil();
+    insertDepan("Bebek");
+    tampil();
+    insertBelakang("Cicak");
+    tampil();
+    insertBelakang("Domba");
+    tampil();
+    hapusBelakang();
+    tampil();
+    hapusDepan();
+    tampil();
+    insertTengah("Sapi", 2);
+    tampil();
+    hapusTengah(2);
+    tampil();
+    return 0;
 }
 ```
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
-
+Program diatas adalah implementasi dari struktur data linked list circular menggunakan bahasa pemrograman C++. Dalam program ini, kita dapat melakukan berbagai operasi seperti menambahkan elemen di depan atau belakang, menghapus elemen dari depan, belakang, atau tengah, serta mengubah nilai dari elemen-elemen tertentu dalam linked list. Setiap operasi ini diimplementasikan melalui fungsi-fungsi yang telah didefinisikan sebelumnya. Pada bagian main() program, dilakukan serangkaian operasi tersebut untuk menguji fungsi-fungsi tersebut, dengan menambahkan, menghapus, dan mengubah elemen-elemen dalam linked list serta menampilkan hasilnya.
 
 ## Unguided 
 
@@ -537,11 +1049,11 @@ int main()
 #### Output:
 ![Screenshot%20(52).png](https://github.com/suxeno/Struktur-Data-Assignment/assets/111122086/6d1727a8-fb77-4ecf-81ff-5de9386686b7)
 
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
-
+Kode di atas merupakan program Single Linked List Non-Circular dalam bahasa C++ yang mendemonstrasikan operasi dasar seperti menambah data di depan, belakang, dan tengah, mengubah data di depan, belakang, dan tengah, menghapus data di depan, belakang, dan tengah, serta menghapus seluruh data. Program ini juga memungkinkan user untuk menampilkan data yang ada di dalam list. Kode ini menggunakan struct Node untuk menyimpan data nama dan NIM mahasiswa, dan struct LinkedList untuk menampung seluruh node. Program ini menggunakan berbagai fungsi untuk melakukan operasi-operasi tersebut, seperti insertFront(), insertBack(), insertMiddle(), remove(), search(), dan display().
 
 
 ## Kesimpulan
 linked list circular adalah jenis linked list di mana elemen terakhir menunjuk kembali ke elemen pertama, membentuk lingkaran tanpa titik akhir yang jelas, yang menghilangkan kebutuhan akan pointer nullptr. Linked list circular sering digunakan untuk keperluan tertentu seperti buffering dan pemrograman terdistribusi.
 ## Referensi
-[1] GeeksforGeeks. (2023, November 14). Circular Linked List. Retrieved from https://www.geeksforgeeks.org/circular-linked-list/
+[1] GeeksforGeeks. (2023, November 14). Circular Linked List. Retrieved from https://www.geeksforgeeks.org/circular-linked-list/ <br>
+[2] Modul Kuliah Struktur Data - Linked List - Universitas Esa Unggul: https://lms-paralel.esaunggul.ac.id/pluginfile.php?file=%2F86227%2Fmod_resource%2Fcontent%2F1%2FModul%20Struktur%20Data-Linked%20List.pdf
