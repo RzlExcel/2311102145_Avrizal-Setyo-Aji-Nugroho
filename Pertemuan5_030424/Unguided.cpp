@@ -1,3 +1,7 @@
+/*
+    Avrizal Setyo Aji Nugroho
+    2311102145
+*/
 #include <iostream>
 #include <string>
 using namespace std;
@@ -52,7 +56,7 @@ public:
         return sum % MAX_SIZE;
     }
 
-    // Insertion
+    // Fungsi Menginputkan data
     void insert(string NIM, string nama, int nilai)
     {
         int index = hash_func(NIM);
@@ -72,7 +76,7 @@ public:
         }
     }
 
-    // Deletion
+    // Fungsi untuk menghapus data
     void remove(string NIM)
     {
         int index = hash_func(NIM);
@@ -96,10 +100,10 @@ public:
             prev = current;
             current = current->next;
         }
-        cout << "Data not found for NIM: " << NIM << endl;
+        cout << "Data Ra ene NIM: " << NIM << endl;
     }
 
-    // Searching by NIM
+    // Fungsi mencari  data berdasarkan NIM
     void searchByNIM(string NIM)
     {
         int index = hash_func(NIM);
@@ -108,15 +112,15 @@ public:
         {
             if (current->NIM == NIM)
             {
-                cout << "Data found - NIM: " << current->NIM << ", Nama: " << current->nama << ", Nilai: " << current->nilai << endl;
+                cout << "Data ditemukan - NIM: " << current->NIM << ", Nama: " << current->nama << ", Nilai: " << current->nilai << endl;
                 return;
             }
             current = current->next;
         }
-        cout << "Data not found for NIM: " << NIM << endl;
+        cout << "Data Ra ene NIM: " << NIM << endl;
     }
 
-    // Searching by range of values (80-90)
+    // Fungsi mencari data  berdasarkan nilai
     void searchByRange()
     {
         for (int i = 0; i < MAX_SIZE; i++)
@@ -178,21 +182,21 @@ int main()
         switch (choice)
         {
         case 1:
-            cout << "Masukkan NIM: ";
+            cout << "Inputkan NIM: ";
             cin >> NIM;
-            cout << "Masukkan Nama: ";
+            cout << "Inputkan Nama: ";
             cin >> nama;
-            cout << "Masukkan Nilai: ";
+            cout << "Inputkan Nilai: ";
             cin >> nilai;
             hashTable.insert(NIM, nama, nilai);
             break;
         case 2:
-            cout << "Masukkan NIM yang ingin dihapus: ";
+            cout << "Inputkan NIM yang ingin dihapus: ";
             cin >> NIM;
             hashTable.remove(NIM);
             break;
         case 3:
-            cout << "Masukkan NIM yang ingin dicari: ";
+            cout << "Inputkan NIM yang ingin dicari: ";
             cin >> NIM;
             hashTable.searchByNIM(NIM);
             break;
@@ -207,7 +211,7 @@ int main()
             cout << "Keluar dari program.\n";
             break;
         default:
-            cout << "Pilihan tidak valid. Silakan pilih menu yang benar.\n";
+            cout << "Tidak Valid, yang bener aje rugi dong.\n";
         }
     } while (choice != 6);
 
