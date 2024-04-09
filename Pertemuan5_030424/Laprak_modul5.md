@@ -4,7 +4,13 @@
 
 ## Dasar Teori
 
-
+Hash Table adalah data structure yang digunakan untuk mengorganisasi data dengan efisiensi tinggi. Hash Table menggunakan fungsi hash untuk menghasilkan key yang unik dan memastikan bahwa setiap key hanya tersedia satu kali. Jika key yang sama ditemukan, akan terjadi kolisi, yang akan menyebabkan waktu akses lebih lama. Jika fungsi hash yang digunakan adalah baik, kemungkinan kolisi dapat menjadi kecil atau tidak terjadi. Hash Table dapat dibuat dengan beberapa desain, termasuk separate chaining, linear probing, dan quadratic probing : <br><br>
+-Separate chaining menggunakan list untuk menyimpan data yang memiliki key yang sama<br>
+-linear probing menggunakan algoritma probing untuk mencari lokasi yang tersedia untuk menyimpan data <br>
+-quadratic probing menggunakan algoritma probing yang berbeda <br><br>
+Hash Table dapat digunakan dalam berbagai aplikasi, mulai dari sistem operasi, database, hingga aplikasi web. Hash Table memiliki beberapa variasi, termasuk open addressing dan closed addressing. <br>
+-Open addressing menggunakan algoritma hash untuk mencari lokasi yang tersedia untuk menyimpan data<br> 
+-sedangkan closed addressing menggunakan algoritma hash untuk mencari lokasi yang tidak tersedia untuk menyimpan data. 
 
 
 ## Guided 
