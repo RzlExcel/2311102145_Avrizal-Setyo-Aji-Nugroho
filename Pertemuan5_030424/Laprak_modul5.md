@@ -1,4 +1,4 @@
-# <h1 align="center">Laporan Praktikum Modul Tipe Data</h1>
+# <h1 align="center">Laporan Praktikum Modul Hash Table</h1>
 <p align="center">Avrizal Setyo Aji Nugroho</p>
 <p align="center">2311102145</p>
 
