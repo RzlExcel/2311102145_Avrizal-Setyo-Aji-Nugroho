@@ -150,8 +150,10 @@ int main()
     return 0;
 }
 ```
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
-
+Kode di atas menggunakan array dinamis “table” untuk menyimpan bucket dalam
+hash table. Setiap bucket diwakili oleh sebuah linked list dengan setiap node
+merepresentasikan satu item data. Fungsi hash sederhana hanya menggunakan
+modulus untuk memetakan setiap input kunci ke nilai indeks array.
 ## Guided 
 
 ### 2. Hash Table
@@ -265,7 +267,15 @@ int main()
     return 0;
 }
 ```
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
+Pada program di atas, class HashNode merepresentasikan setiap node dalam hash
+table, yang terdiri dari nama dan nomor telepon karyawan. Class HashMap
+digunakan untuk mengimplementasikan struktur hash table dengan menggunakan
+vector yang menampung pointer ke HashNode. Fungsi hashFunc digunakan
+untuk menghitung nilai hash dari nama karyawan yang diberikan, dan fungsi
+insert digunakan untuk menambahkan data baru ke dalam hash table. Fungsi
+remove digunakan untuk menghapus data dari hash table, dan fungsi
+searchByName digunakan untuk mencari nomor telepon dari karyawan dengan
+nama yang diberikan.
 
 
 
@@ -498,13 +508,16 @@ int main()
 }
 ```
 #### Output:
-![Screenshot%20(52).png](https://github.com/suxeno/Struktur-Data-Assignment/assets/111122086/6d1727a8-fb77-4ecf-81ff-5de9386686b7)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/db604141-959a-4eb4-98ab-e49cfa9f494f)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/46fcfd63-fac7-4914-80f9-3c9aa1ebc1ef)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/abd5584e-7168-4e23-8bad-33ce58c474bb)
 
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
 
+Program ini menunjukkan cara menggunakan hash table dalam bahasa pemrograman C++. Kita dapat menambahkan data mahasiswa, menghapus data berdasarkan NIM, mencari data berdasarkan NIM, mencari data berdasarkan rentang nilai, dan menampilkan semua data mahasiswa yang telah dimasukkan. Program ini menggunakan teknik hashing untuk mengatur dan mengakses data dengan cepat. Program ini memudahkan pengelolaan data mahasiswa.
 
 ## Kesimpulan
-Ringkasan dan interpretasi pandangan kalia dari hasil praktikum dan pembelajaran yang didapat[1].
-
+Hash table adalah cara untuk mengatur dan mengakses data dengan cepat dalam komputer. Ini mirip dengan memiliki daftar belanja yang disusun berdasarkan kategori, yang memungkinkan Anda menemukan barang dengan cepat tanpa harus mencari semua produk satu per satu. Ini membuat program komputer bekerja lebih efisien karena memungkinkan mereka menyimpan dan mencari informasi dengan cepat, bahkan untuk volume data yang besar. Hash table juga sangat bermanfaat untuk mengelola data di dalam komputer karena membantu mengatasi masalah tabrakan, yang terjadi ketika dua data memiliki lokasi penyimpanan yang sama.
 ## Referensi
-[1] I. Holm, Narrator, and J. Fullerton-Smith, Producer, How to Build a Human [DVD]. London: BBC; 2002.
+[1] Hashing Techniques for Large-Scale Data Processing: A Survey and Recent Advances (2023) oleh Md. Saiful Islam.<br>
+[2] A New Approach to Collision Resolution in Hash Tables (2023) oleh Weiwei Xing.
+
