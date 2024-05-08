@@ -1,504 +1,367 @@
-# <h1 align="center">Laporan Praktikum Modul Tipe Data</h1>
+# <h1 align="center">Laporan Praktikum Modul Stack</h1>
 <p align="center">Avrizal Setyo Aji Nugroho</p>
 <p align="center">2311102145</p>
 
 ## Dasar Teori
+Stack, juga disebut tumpukan, adalah struktur data yang menggunakan prinsip Last In First Out (LIFO). Artinya, elemen pertama yang dikeluarkan adalah yang terakhir yang dimasukkan ke dalam stack. Seringkali, Stack dianalogikan dengan tumpukan piring: piring pertama yang ditumpuk adalah piring terakhir yang diambil.
+
+Operasi Inti dari Stack:
+
+1. Push (Masukkan): Menambahkan elemen ke dalam tumpukan pada posisi paling atas atau ujung.<br>
+2. Pop (Keluarkan): Menghapus elemen dari posisi paling atas atau ujung tumpukan.<br>
+3. Top (Atas): Mendapatkan nilai atau melihat elemen teratas pada tumpukan tanpa menghapusnya.<br>
+4. IsEmpty (Kosong): Memeriksa apakah tumpukan kosong atau tidak.<br>
+5. IsFull (Penuh):Memeriksaapakah tumpukanpenuhatau tidak (terutamapada implementasitumpukandengankapasitasterbatas).<br>
+6. Size(Ukuran):Mengembalikanjumlahelemenyangadadalamtumpukan.<br>
+7. Peek (Lihat):Melihat nilai atau elemenpadaposisi tertentudalamtumpukan tanpamenghapusnya.<br>
+8. Clear (Hapus Semua): Mengosongkan ataumenghapus semua elemen dari tumpukan.<br>
+9. Search(Cari):Mencarikeberadaanelementertentudalamtumpukan.<br>
+
+Implementasi Stack:
+
+Berbagai struktur data, seperti array, Linked list, dan Tree, dapat digunakan untuk mengimplementasikan stack. Array adalah implementasi yang paling umum.
 
 
 
 
 ## Guided 
 
-### 1. Hash Table
+### 1. Stack
 
 ```C++
 #include <iostream>
 using namespace std;
-const int MAX_SIZE = 10;
-// Fungsi hash sederhana
-int hash_func(int key)
+string arrayBuku[5];
+int maksimal = 5, top = 0;
+bool isFull()
 {
-    return key % MAX_SIZE;
+    return (top == maksimal);
 }
-// Struktur data untuk setiap node
-struct Node
+bool isEmpty()
 {
-    int key;
-    int value;
-    Node *next;
-    Node(int key, int value) : key(key), value(value),
-                               next(nullptr) {}
-};
-// Class hash table
-class HashTable
+    return (top == 0);
+}
+void pushArrayBuku(string data)
 {
-private:
-    Node **table;
-
-public:
-    HashTable()
+    if (isFull())
     {
-        table = new Node *[MAX_SIZE]();
+        cout << "Data telah penuh" << endl;
     }
-    ~HashTable()
+    else
     {
-        for (int i = 0; i < MAX_SIZE; i++)
+        arrayBuku[top] = data;
+        top++;
+    }
+}
+void popArrayBuku()
+{
+    if (isEmpty())
+    {
+        cout << "Tidak ada data yang dihapus" << endl;
+    }
+    else
+    {
+        arrayBuku[top - 1] = "";
+        top--;
+    }
+}
+void peekArrayBuku(int posisi)
+{
+    if (isEmpty())
+    {
+        cout << "Tidak ada data yang bisa dilihat" << endl;
+    }
+    else
+    {
+        int index = top;
+        for (int i = 1; i <= posisi; i++)
         {
-            Node *current = table[i];
-            while (current != nullptr)
-            {
-                Node *temp = current;
-                current = current->next;
-                delete temp;
-            }
+            index--;
         }
-        delete[] table;
+        cout << "Posisi ke " << posisi << " adalah " << arrayBuku[index] << endl;
     }
-    // Insertion
-    void insert(int key, int value)
+}
+int countStack()
+{
+    return top;
+}
+void changeArrayBuku(int posisi, string data)
+{
+    if (posisi > top)
     {
-        int index = hash_func(key);
-        Node *current = table[index];
-        while (current != nullptr)
+        cout << "Posisi melebihi data yang ada" << endl;
+    }
+    else
+    {
+        int index = top;
+        for (int i = 1; i <= posisi; i++)
         {
-            if (current->key == key)
-            {
-                current->value = value;
-                return;
-            }
-            current = current->next;
+            index--;
         }
-        Node *node = new Node(key, value);
-        node->next = table[index];
-        table[index] = node;
+        arrayBuku[index] = data;
     }
-    // Searching
-    int get(int key)
+}
+void destroyArraybuku()
+{
+    for (int i = top; i >= 0; i--)
     {
-        int index = hash_func(key);
-        Node *current = table[index];
-        while (current != nullptr)
-        {
-            if (current->key == key)
-            {
-                return current->value;
-            }
-            current = current->next;
-        }
-        return -1;
+        arrayBuku[i] = "";
     }
-    // Deletion
-    void remove(int key)
+    top = 0;
+}
+void cetakArrayBuku()
+{
+    if (isEmpty())
     {
-        int index = hash_func(key);
-        Node *current = table[index];
-        Node *prev = nullptr;
-        while (current != nullptr)
-        {
-            if (current->key == key)
-            {
-                if (prev == nullptr)
-                {
-                    table[index] = current->next;
-                }
-                else
-                {
-                    prev->next = current->next;
-                }
-                delete current;
-                return;
-            }
-            prev = current;
-            current = current->next;
-        }
+        cout << "Tidak ada data yang dicetak" << endl;
     }
-    // Traversal
-    void traverse()
+    else
     {
-        for (int i = 0; i < MAX_SIZE; i++)
+        for (int i = top - 1; i >= 0; i--)
         {
-            Node *current = table[i];
-            while (current != nullptr)
-            {
-                cout << current->key << ": " << current->value
-                     << endl;
-                current = current->next;
-            }
+            cout << arrayBuku[i] << endl;
         }
     }
-};
+}
 int main()
 {
-    HashTable ht;
-    // Insertion
-    ht.insert(1, 10);
-    ht.insert(2, 20);
-    ht.insert(3, 30);
-    // Searching
-    cout << "Get key 1: " << ht.get(1) << endl;
-    cout << "Get key 4: " << ht.get(4) << endl;
-    // Deletion
-    ht.remove(4);
-    // Traversal
-    ht.traverse();
+    pushArrayBuku("Kalkulus");
+    pushArrayBuku("Struktur Data");
+    pushArrayBuku("Matematika Diskrit");
+    pushArrayBuku("Dasar Multimedia");
+    pushArrayBuku("Inggris");
+    cetakArrayBuku();
+    cout << "\n";
+    cout << "Apakah data stack penuh? " << isFull() << endl;
+    cout << "Apakah data stack kosong? " << isEmpty() << endl;
+    peekArrayBuku(2);
+    popArrayBuku();
+    cout << "Banyaknya data = " << countStack() << endl;
+    changeArrayBuku(2, "Bahasa Jerman");
+    cetakArrayBuku();
+    cout << "\n";
+    destroyArraybuku();
+    cout << "Jumlah data setelah dihapus: " << top << endl;
+    cetakArrayBuku();
     return 0;
 }
+
 ```
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
-
-## Guided 
-
-### 2. Hash Table
-
-```C++
-#include <iostream>
-#include <string>
-#include <vector>
-using namespace std;
-const int TABLE_SIZE = 11;
-string name;
-string phone_number;
-class HashNode
-{
-public:
-    string name;
-    string phone_number;
-    HashNode(string name, string phone_number)
-    {
-        this->name = name;
-        this->phone_number = phone_number;
-    }
-};
-class HashMap
-{
-private:
-    vector<HashNode *> table[TABLE_SIZE];
-
-public:
-    int hashFunc(string key)
-    {
-        int hash_val = 0;
-        for (char c : key)
-        {
-            hash_val += c;
-        }
-        return hash_val % TABLE_SIZE;
-    }
-    void insert(string name, string phone_number)
-    {
-        int hash_val = hashFunc(name);
-        for (auto node : table[hash_val])
-        {
-            if (node->name == name)
-            {
-                node->phone_number = phone_number;
-                return;
-            }
-        }
-        table[hash_val].push_back(new HashNode(name,
-                                               phone_number));
-    }
-    void remove(string name)
-    {
-        int hash_val = hashFunc(name);
-        for (auto it = table[hash_val].begin(); it !=
-                                                table[hash_val].end();
-             it++)
-        {
-            if ((*it)->name == name)
-            {
-                table[hash_val].erase(it);
-                return;
-            }
-        }
-    }
-    string searchByName(string name)
-    {
-        int hash_val = hashFunc(name);
-        for (auto node : table[hash_val])
-        {
-            if (node->name == name)
-            {
-                return node->phone_number;
-            }
-        }
-        return "";
-    }
-    void print()
-    {
-        for (int i = 0; i < TABLE_SIZE; i++)
-        {
-            cout << i << ": ";
-            for (auto pair : table[i])
-            {
-                if (pair != nullptr)
-                {
-                    cout << "[" << pair->name << ", " << pair->phone_number << "]";
-                }
-            }
-            cout << endl;
-        }
-    }
-};
-int main()
-{
-    HashMap employee_map;
-    employee_map.insert("Mistah", "1234");
-    employee_map.insert("Pastah", "5678");
-    employee_map.insert("Ghana", "91011");
-    cout << "Nomer Hp Mistah : "
-         << employee_map.searchByName("Mistah") << endl;
-    cout << "Phone Hp Pastah : "
-         << employee_map.searchByName("Pastah") << endl;
-    employee_map.remove("Mistah");
-    cout << "Nomer Hp Mistah setelah dihapus : "
-         << employee_map.searchByName("Mistah") << endl
-         << endl;
-    cout << "Hash Table : " << endl;
-    employee_map.print();
-    return 0;
-}
-```
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
-
-
-
+Kode di atas mengimplementasikan struktur data stack menggunakan array dalam bahasa C++. Kode tersebut memiliki fungsi dasar seperti push untuk menambahkan data ke dalam stack, pop untuk menghapus data dari stack, dan peek untuk melihat data di posisi tertentu. Selain itu, kode tersebut memiliki fungsi tambahan seperti isFull, isEmpty, countStack, changeArrayBook, destroyArrayBook, dan cetakArrayBook. Program juga melakukan operasi dasar pada stack, seperti menambahkan beberapa data ke dalam stack, menghapus data dari stack, mengubah data pada posisi tertentu, serta menghapus seluruh data dari stack. Setelah operasi-operasi dilakukan, program mencetak status stack dan isi stack sesuai dengan operasi yang telah dilakukan.
 ## Unguided 
 
+### 1. Buatlah program untuk menentukan apakah kalimat tersebut yang diinputkan dalam program stack adalah palindrom/tidak. Palindrom kalimat yang dibaca dari depan dan belakang sama. Jelaskan bagaimana cara kerja programnya.
+
+
+```C++
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class stack
+{
+private:
+    struct Node
+    {
+        char data;
+        Node *next;
+    };
+    Node *top;
+
+public:
+    stack() { top = NULL; }
+    void push(char x)
+    {
+        Node *temp = new Node;
+        temp->data = x;
+        temp->next = top;
+        top = temp;
+    }
+    char pop()
+    {
+        if (top == NULL)
+        {
+            cout << "Stack Kosong" << endl;
+            exit(1);
+        }
+        char x = top->data;
+        Node *temp = top;
+        top = top->next;
+        delete temp;
+        return x;
+    }
+    bool kosong()
+    {
+        return top == NULL;
+    }
+};
+
+class Queue
+{
+private:
+    struct Node
+    {
+        char data;
+        Node *next;
+    };
+    Node *front, *rear;
+
+public:
+    Queue()
+    {
+        front = rear = NULL;
+    }
+    void enqueue(char x)
+    {
+        Node *temp = new Node;
+        temp->data = x;
+        temp->next = NULL;
+        if (front == NULL)
+            front = rear = temp;
+        else
+        {
+            rear->next = temp;
+            rear = temp;
+        }
+    }
+    char dequeue()
+    {
+        if (front == NULL)
+        {
+            cout << "Queue Kosong" << endl;
+            exit(1);
+        }
+        char x = front->data;
+        Node *temp = front;
+        front = front->next;
+        if (front == NULL)
+            rear = NULL;
+        delete temp;
+        return x;
+    }
+    bool kosong()
+    {
+        return front == NULL;
+    }
+};
+
+int main()
+{
+    stack s;
+    Queue q;
+    string str;
+    cout << "Masukkan kalimat : " << endl;
+    cin >> str;
+    for (int i = 0; i < str.length();
+         i++)
+    {
+        s.push(str[i]);
+        q.enqueue(str[i]);
+    }
+    bool Palindrom = true;
+    for (int i = 0; i < str.length();
+         i++)
+    {
+        if (s.pop() != q.dequeue())
+        {
+            Palindrom = false;
+            break;
+        }
+    }
+    if (Palindrom)
+        cout << "Kalimat Tersebut adalah Palindrom" << endl;
+    else
+        cout << "Kalimat Tersebut bukan Palindrom" << endl;
+    return 0;
+}
+```
+
+#### Output:
+
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/f43bee63-3e1d-49f0-95ee-381c2cfc3223)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/61ddfc7f-772b-4d2e-9f56-0dbe39b00c74)
+
+
+
+Kode di atas menggunakan struktur data stack dan queue untuk mengetahui apakah sebuah kalimat yang dimasukkan merupakan palindrom atau tidak. Program meminta pengguna untuk memasukkan sebuah kalimat, kemudian setiap karakter dari kalimat tersebut dimasukkan ke dalam stack dan queue, dan kemudian karakter-karakter tersebut dikeluarkan dari stack dan queue secara bergantian untuk membandingkannya. Jika urutan karakter yang dikeluarkan dari stack dan queue sama, maka kalimat tersebut merupakan palindrom; jika tidak, maka bukan palindrom. Hasil pemeriksaan akan ditampilkan kepada pengguna.
+
+
+
+## Unguided 2
+### 2. Buatlah program untuk melakukan pembalikan terhadap kalimat menggunakan stack dengan minimal 3 kata. Jelaskan output program dan source codenya beserta operasi/fungsi yang dibuat?
  
-![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/cabe2547-3be2-4224-a835-d5d8578b2ff1)
 
 
 
 ```C++
-/*
-    Avrizal Setyo Aji Nugroho
-    2311102145
-*/
 #include <iostream>
+#include <stack>
 #include <string>
+
 using namespace std;
 
-const int MAX_SIZE = 10;
-
-// Struktur data untuk setiap node
-struct Node
+string kataTerbalik(string kata)
 {
-    string NIM;
-    string nama;
-    int nilai;
-    Node *next;
-    Node(string NIM, string nama, int nilai) : NIM(NIM), nama(nama), nilai(nilai), next(nullptr) {}
-};
-
-// Class hash table
-class HashTable
+    stack<char> charStack;
+    for (char c : kata)
+    {
+        charStack.push(c);
+    }
+    string kataTerbalik = "";
+    while (!charStack.empty())
+    {
+        kataTerbalik += charStack.top();
+        charStack.pop();
+    }
+    return kataTerbalik;
+}
+string KalimatTerbalik(string Kalimat)
 {
-private:
-    Node **table;
-
-public:
-    HashTable()
+    stack<string> kataStack;
+    string kata = "";
+    for (char c : Kalimat)
     {
-        table = new Node *[MAX_SIZE]();
-    }
-
-    ~HashTable()
-    {
-        for (int i = 0; i < MAX_SIZE; i++)
+        if (c == ' ')
         {
-            Node *current = table[i];
-            while (current != nullptr)
-            {
-                Node *temp = current;
-                current = current->next;
-                delete temp;
-            }
-        }
-        delete[] table;
-    }
-
-    // Fungsi hash sederhana
-    int hash_func(string NIM)
-    {
-        int sum = 0;
-        for (char c : NIM)
-        {
-            sum += c;
-        }
-        return sum % MAX_SIZE;
-    }
-
-    // Fungsi Menginputkan data
-    void insert(string NIM, string nama, int nilai)
-    {
-        int index = hash_func(NIM);
-        Node *newNode = new Node(NIM, nama, nilai);
-        if (table[index] == nullptr)
-        {
-            table[index] = newNode;
+            kataStack.push(kata);
+            kata = "";
         }
         else
         {
-            Node *current = table[index];
-            while (current->next != nullptr)
-            {
-                current = current->next;
-            }
-            current->next = newNode;
+            kata += c;
         }
     }
-
-    // Fungsi untuk menghapus data
-    void remove(string NIM)
+    kataStack.push(kata);
+    string KalimatTerbalik = "";
+    while (!kataStack.empty())
     {
-        int index = hash_func(NIM);
-        Node *current = table[index];
-        Node *prev = nullptr;
-        while (current != nullptr)
-        {
-            if (current->NIM == NIM)
-            {
-                if (prev == nullptr)
-                {
-                    table[index] = current->next;
-                }
-                else
-                {
-                    prev->next = current->next;
-                }
-                delete current;
-                return;
-            }
-            prev = current;
-            current = current->next;
-        }
-        cout << "Data Ra ene NIM: " << NIM << endl;
+        KalimatTerbalik += kataTerbalik(kataStack.top()) + " ";
+        kataStack.pop();
     }
-
-    // Fungsi mencari  data berdasarkan NIM
-    void searchByNIM(string NIM)
-    {
-        int index = hash_func(NIM);
-        Node *current = table[index];
-        while (current != nullptr)
-        {
-            if (current->NIM == NIM)
-            {
-                cout << "Data ditemukan - NIM: " << current->NIM << ", Nama: " << current->nama << ", Nilai: " << current->nilai << endl;
-                return;
-            }
-            current = current->next;
-        }
-        cout << "Data Ra ene NIM: " << NIM << endl;
-    }
-
-    // Fungsi mencari data  berdasarkan nilai
-    void searchByRange()
-    {
-        for (int i = 0; i < MAX_SIZE; i++)
-        {
-            Node *current = table[i];
-            while (current != nullptr)
-            {
-                if (current->nilai >= 80 && current->nilai <= 90)
-                {
-                    cout << "NIM: " << current->NIM << ", Nama: " << current->nama << ", Nilai: " << current->nilai << endl;
-                }
-                current = current->next;
-            }
-        }
-    }
-
-    // Menampilkan semua data mahasiswa
-    void displayAllData()
-    {
-        cout << "Data Mahasiswa:\n";
-        for (int i = 0; i < MAX_SIZE; i++)
-        {
-            Node *current = table[i];
-            while (current != nullptr)
-            {
-                cout << "NIM: " << current->NIM << ", Nama: " << current->nama << ", Nilai: " << current->nilai << endl;
-                current = current->next;
-            }
-        }
-    }
-
-    // Menampilkan menu pilihan
-    void displayMenu()
-    {
-        cout << "Menu:\n";
-        cout << "1. Tambah Data\n";
-        cout << "2. Hapus Data\n";
-        cout << "3. Cari berdasarkan NIM\n";
-        cout << "4. Cari berdasarkan rentang nilai (80-90)\n";
-        cout << "5. Tampilkan data mahasiswa\n";
-        cout << "6. Keluar\n";
-    }
-};
-
+    return KalimatTerbalik;
+}
 int main()
 {
-    HashTable hashTable;
-
-    int choice;
-    string NIM, nama;
-    int nilai;
-
-    do
-    {
-        hashTable.displayMenu();
-        cout << "Pilih menu: ";
-        cin >> choice;
-
-        switch (choice)
-        {
-        case 1:
-            cout << "Inputkan NIM: ";
-            cin >> NIM;
-            cout << "Inputkan Nama: ";
-            cin >> nama;
-            cout << "Inputkan Nilai: ";
-            cin >> nilai;
-            hashTable.insert(NIM, nama, nilai);
-            break;
-        case 2:
-            cout << "Inputkan NIM yang ingin dihapus: ";
-            cin >> NIM;
-            hashTable.remove(NIM);
-            break;
-        case 3:
-            cout << "Inputkan NIM yang ingin dicari: ";
-            cin >> NIM;
-            hashTable.searchByNIM(NIM);
-            break;
-        case 4:
-            cout << "Data dengan nilai antara 80-90:\n";
-            hashTable.searchByRange();
-            break;
-        case 5:
-            hashTable.displayAllData();
-            break;
-        case 6:
-            cout << "Keluar dari program.\n";
-            break;
-        default:
-            cout << "Tidak Valid, yang bener aje rugi dong.\n";
-        }
-    } while (choice != 6);
-
+    string Kalimat;
+    cout << "Masukkan Kalimat : ";
+    getline(cin, Kalimat);
+    cout << "Kalimat : " << Kalimat << endl;
+    cout << "Kalimat Terbalik : " << KalimatTerbalik(Kalimat) << endl;
     return 0;
 }
 ```
 #### Output:
-![Screenshot%20(52).png](https://github.com/suxeno/Struktur-Data-Assignment/assets/111122086/6d1727a8-fb77-4ecf-81ff-5de9386686b7)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/37fdbdef-03c1-4a3d-b247-124f780d23b9)
 
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
 
+Kode di atas adalah program yang membalikkan setiap kata dalam sebuah kalimat dengan menggunakan struktur data stack dari C++ STL. Program pertama-tama meminta pengguna memasukkan kalimat. Setelah menerima input, program memproses setiap karakter dalam kalimat. Ketika program menemukan spasi, dia memasukkan kata-kata yang telah dibuat ke dalam stack 'kataStack'. Setelah kata-kata dimasukkan ke dalam stack, program mengeluarkan kata-kata satu per satu dari stack dan menggunakan fungsi 'kataTerbalik' untuk membalikkan kata-kata tersebut, sehingga membentuk kalimat terbalik. Hasilnya, program mencetak kalimat asli ke layar dan mencetak kalimat terbalik.
 
 ## Kesimpulan
-Ringkasan dan interpretasi pandangan kalia dari hasil praktikum dan pembelajaran yang didapat[1].
+Meskipun menggunakan metode dan fitur yang berbeda, ketiga kode tersebut merupakan implementasi struktur data stack dalam bahasa C++. Sementara kode pertama dan kedua berfokus pada penggunaan stack dengan array dan melakukan operasi dasar seperti push, pop, dan peek, serta fungsi lainnya seperti isFull, isEmpty, countStack, changeArrayBook, destroyArrayBook, dan cetakArrayBook, kode ketiga membalikkan setiap kata dalam sebuah kalimat dengan menggunakan struktur data stack yang disediakan oleh C++ STL. Meskipun tujuan dan fokus penggunaan stack dalam masing-masing dari ketiga kode tersebut berbeda, inti dari penggunaan stack adalah untuk memanipulasi data dengan cara yang sesuai dengan kebutuhan program tertentu.
+
 
 ## Referensi
-[1] I. Holm, Narrator, and J. Fullerton-Smith, Producer, How to Build a Human [DVD]. London: BBC; 2002.
+[1] Erkamim, E., Abdurrohim, I., Yuliyanti, S., Karim, R., Rahman, A., Admira, T. M. A., & Ridwan, A. (2024). Buku Ajar Algoritma dan Struktur Data. PT. Sonpedia Publishing Indonesia.
+<br>
+[2 ]Nugraha, M. (2021). Dasar Pemrograman Dengan C++ Materi Paling Dasar Untuk Menjadi Programmer Berbagai Platform. Deepublish.
