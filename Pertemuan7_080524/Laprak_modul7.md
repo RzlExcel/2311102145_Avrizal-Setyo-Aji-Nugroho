@@ -4,6 +4,27 @@
 
 ## Dasar Teori
 
+Queue atau antrian adalah struktur data abstrak yang digunakan untuk menyimpan sekumpulan data dengan cara First In First Out (FIFO). Artinya, elemen yang pertama kali masuk ke dalam antrian adalah elemen yang pertama kali dikeluarkan.
+
+Queue sering diibaratkan seperti antrian di kehidupan nyata, di mana orang yang datang pertama kali dilayani terlebih dahulu. Hal ini berbeda dengan struktur data lain seperti stack yang menggunakan prinsip Last In First Out (LIFO).
+
+Operasi Dasar Queue
+
+Ada beberapa operasi dasar yang dapat dilakukan pada queue:
+
+1. Enqueue: Menambahkan elemen baru ke dalam queue, biasanya dilakukan di ujung belakang (rear) queue.
+2. Dequeue: Menghapus elemen pertama dari queue, biasanya dilakukan di ujung depan (front) queue.
+3. Front: Mendapatkan elemen pertama dari queue tanpa menghapusnya.
+4. IsEmpty: Memeriksa apakah queue kosong.
+5. IsFull: Memeriksa apakah queue penuh (untuk implementasi menggunakan array).
+6. Count: Menghitung jumlah elemen dalam queue.
+7. Clear: Menghapus semua elemen dari queue.
+
+Queue dapat diimplementasikan dengan menggunakan berbagai struktur data, seperti array, linked list, dan circular array.
+
+1. Implementasi dengan Array: Sederhana, tetapi memiliki keterbatasan ukuran.
+2. Implementasi dengan Linked List: Lebih fleksibel dalam ukuran, tetapi lebih kompleks.
+3. Implementasi dengan Circular Array: Menggabungkan kelebihan array dan linked list.
 
 
 
