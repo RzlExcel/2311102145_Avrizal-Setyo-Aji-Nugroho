@@ -4,24 +4,20 @@
 
 ## Dasar Teori
 
-Tipe data adalah klasifikasi value suatu variabel yang membantu operasi komputer untuk mengenali nilai data tanpa menghasilkan output error. Pada dasarnya, komputer hanya memahami bahasa biner (binary language) yaitu 1 dan 0. Agar komputer melakukan operasi yang lebih kompleks, perlu adanya tipe data yang bisa dipahami bahasa komputer atau bahasa pemrograman.
+Algoritma pencarian adalah serangkaian langkah terstruktur yang digunakan untuk menemukan item tertentu dalam kumpulan data. Algoritma ini memainkan peran penting dalam berbagai aplikasi, seperti mesin pencari, sistem basis data, dan kecerdasan buatan.
 
-1. Tipe data Primitif
-   Tipe data primitif adalah tipe data dasar yang banyak digunakan bahasa pemrogaman contohnya:
-   <div>a.int(Integer)<div>
-   b.float <div>
-   c.char <div>
-   d.boolean <div>
-   e.double <div>
-2. Tipe data abstrak
-   tipe data abstrak atau lebih dikenal dengan istilah ADT(Abstract Data Types) adalah tipe        data yang bergantung dengan tipe data dan serangkaian operasi yang dilakukan sesuai dengan      input dan output pada software.
-3. Tipe data koleksi(collection)
-   adalah tipe data dengan jumlah data yang dinamis. misalkan tipe data integer, yang terdiri dari banyak variabel. kemuan variabel tersebut disimpan dalan suatu tempat. Dalam bahasa c++ disebut dengan array, vektor, dan map.
+1. Sequential Search: Juga dikenal sebagai linear search, algoritma ini melakukan pencarian secara berurutan dari awal hingga akhir kumpulan data. Setiap elemen dicek satu per satu hingga nilai yang dicari ditemukan atau sampai akhir kumpulan data.
+
+2. Binary Search: Algoritma ini bekerja pada kumpulan data yang sudah terurut. Binary search membagi kumpulan data menjadi dua bagian dan membandingkan nilai yang dicari dengan elemen tengah. Jika nilai tersebut lebih kecil dari elemen tengah, pencarian dilakukan pada setengah kiri kumpulan data, dan sebaliknya.
+
+3. Interpolation Search: Algoritma ini mirip dengan binary search, tetapi digunakan pada kumpulan data yang terurut secara teratur. Interpolation search memprediksi lokasi nilai yang dicari berdasarkan distribusi nilai di kumpulan data, sehingga dapat mengurangi jumlah iterasi yang diperlukan.
+
+4. Ternary Search: Seperti binary search, tetapi algoritma ini membagi kumpulan data menjadi tiga bagian. Kemudian, pencarian dilakukan pada salah satu dari tiga bagian tersebut berdasarkan hasil perbandingan dengan nilai yang dicari.
 
 
 ## Guided 
 
-### 1. Tipe data primitif
+### 1. Sequential Search
 
 ```C++
 #include <iostream>
@@ -63,7 +59,7 @@ int main()
 Kode di atas adalah implementasi dari algoritma Sequential Search yang mencari elemen `10` dalam array `data` yang terdiri dari 10 elemen. Program dimulai dengan mendefinisikan array `data` dan elemen yang akan dicari (`cari`). Sebuah loop `for` digunakan untuk memeriksa setiap elemen dalam array. Jika elemen yang dicari ditemukan, variabel `ketemu` diatur menjadi `true` dan loop berhenti. Setelah loop, program menampilkan pesan apakah elemen ditemukan atau tidak, serta indeks di mana elemen tersebut ditemukan jika ada. Output akhir memberikan informasi tentang keberadaan elemen `10` dalam array `data` dan posisinya jika ditemukan.
 ## Guided 
 
-### 2. Tipe data Abstrak
+### 2. BinerySearch
 
 ```C++
 #include <iostream>
