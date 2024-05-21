@@ -156,59 +156,217 @@ int main()
 Kode di atas adalah implementasi program untuk mencari sebuah elemen dalam array menggunakan metode Binary Search setelah mengurutkannya dengan Selection Sort. Array `dataArray` berisi 7 elemen yang diurutkan menggunakan fungsi `selection_sort`, di mana elemen minimum ditemukan dan ditukar dengan elemen pada indeks saat ini. Setelah array diurutkan, fungsi `binerySearch` (dengan kesalahan penulisan "binarySearch") mencari elemen yang diinginkan (`cari`). Fungsi ini menggunakan metode pencarian biner dengan variabel `awal`, `akhir`, dan `tengah` untuk menentukan posisi elemen yang dicari. Program ini kemudian menampilkan hasil pencarian, apakah data ditemukan beserta indeksnya atau tidak ditemukan sama sekali. Input pengguna diambil untuk menentukan elemen yang dicari dan hasilnya ditampilkan setelah pengurutan dan pencarian selesai.
 
 
-## Unguided 
+## Unguided 1
 
-### 1. Buatlah program menggunakan tipe data primitif minimal dua fungsi dan bebas.Menampilkan program, jelaskan program tersebut dan ambil kesimpulan dari materi tipe data primitif!
-
-```C++
-#include <iostream>
-using namespace std;
-
-int main() {
-    cout << "ini adalah file code unguided praktikan" << endl;
-    return 0;
-```
-#### Output:
-![Screenshot%20(52).png](https://github.com/suxeno/Struktur-Data-Assignment/assets/111122086/6d1727a8-fb77-4ecf-81ff-5de9386686b7)
-
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
-
-## Unguided 
-
-### 2. Jelaskan fungsi dari class dan struct secara detail dan berikan contoh programnya
+### 1. Buatlah sebuah program untuk mencari sebuah huruf pada sebuah kalimat yang sudah di input dengan menggunakan Binary Search!
 
 ```C++
+/*
+    Avrizal Setyo Aji Nugroho
+    2311102145
+*/
 #include <iostream>
+#include <vector>
+#include <algorithm>
+
 using namespace std;
 
-int main() {
-    cout << "ini adalah file code unguided praktikan" << endl;
+// Fungsi untuk melakukan binary search
+int binarySearch(const vector<char> &arr, char x)
+{
+    int l = 0;
+    int r = arr.size() - 1;
+
+    while (l <= r)
+    {
+        int mid = l + (r - l) / 2;
+
+        if (arr[mid] == x)
+        {
+            return mid;
+        }
+        else if (arr[mid] < x)
+        {
+            l = mid + 1;
+        }
+        else
+        {
+            r = mid - 1;
+        }
+    }
+
+    return -1;
+}
+
+int main()
+{
+    string Kalimat_145;
+    char MencariHuruf;
+
+    // Input dari pengguna
+    cout << "Masukkan kalimat: ";
+    getline(cin, Kalimat_145);
+
+    cout << "Masukkan huruf yang ingin dicari: ";
+    cin >> MencariHuruf;
+
+    // Menghapus spasi dan mengubah kalimat menjadi daftar huruf
+    vector<char> ListHuruf;
+    for (char c : Kalimat_145)
+    {
+        if (c != ' ')
+        {
+            ListHuruf.push_back(c);
+        }
+    }
+
+    // Mengurutkan daftar huruf
+    sort(ListHuruf.begin(), ListHuruf.end());
+    cout << "Huruf-huruf yang diurutkan: ";
+    for (char c : ListHuruf)
+    {
+        cout << c << ' ';
+    }
+    cout << endl;
+
+    // Menggunakan Binary Search untuk mencari karakter
+    int result = binarySearch(ListHuruf, MencariHuruf);
+
+    if (result != -1)
+    {
+        cout << "Karakter \"" << MencariHuruf << "\" ditemukan pada indeks " << result << " dalam array terurut." << endl;
+    }
+    else
+    {
+        cout << "Karakter \"" << MencariHuruf << "\" tidak ditemukan dalam kalimat." << endl;
+    }
+
     return 0;
 }
+
 ```
 #### Output:
-![240302_00h00m06s_screenshot](https://github.com/suxeno/Struktur-Data-Assignment/assets/111122086/6d1727a8-fb77-4ecf-81ff-5de9386686b7)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/dd9e195c-10cb-426c-b029-b056e9fc4b44)
 
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
 
-## Unguided 
+Kode di atas merupakan implementasi dalam C++ untuk mencari sebuah huruf dalam sebuah kalimat yang telah dimasukkan pengguna menggunakan algoritma Binary Search setelah huruf-huruf dalam kalimat diurutkan. Program ini meminta pengguna untuk memasukkan kalimat dan huruf yang ingin dicari. Selanjutnya, program mengubah kalimat menjadi daftar huruf, menghapus spasi, dan mengurutkannya menggunakan fungsi sort(). Setelah itu, dilakukan pencarian menggunakan Binary Search untuk mencari huruf yang diinginkan dalam daftar huruf yang telah diurutkan. Jika huruf tersebut ditemukan, program akan menampilkan indeksnya dalam daftar huruf yang diurutkan, jika tidak, program akan memberi tahu pengguna bahwa huruf tersebut tidak ditemukan dalam kalimat.
+## Unguided 2
 
-### 3. Buat dan jelaskan progaram menggunakan fungsi map dan jelaskan perbedaan dari array map
+### 2. Buatlah sebuah program yang dapat menghitung banyaknya huruf vocal dalam sebuah kalimat!
 
 ```C++
+/*
+    Avrizal Setyo Aji Nugroho
+    2311102145
+*/
 #include <iostream>
+#include <string>
+#include <map>
+
 using namespace std;
 
-int main() {
-    cout << "ini adalah file code unguided praktikan" << endl;
+// Fungsi untuk memeriksa apakah sebuah karakter adalah vokal
+bool Vokal_145(char c)
+{
+    // Mengubah karakter menjadi huruf kecil untuk memudahkan pemeriksaan
+    c = tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+
+// Fungsi untuk menghitung banyaknya huruf vokal dan mencatat huruf vokal yang diinput
+pair<int, map<char, int>> HitungVocal_145(const string &Kalimat)
+{
+    int Hitung = 0;
+    map<char, int> VokalFound;
+    for (char c : Kalimat)
+    {
+        if (Vokal_145(c))
+        {
+            Hitung++;
+            VokalFound[tolower(c)]++;
+        }
+    }
+    return make_pair(Hitung, VokalFound);
+}
+
+int main()
+{
+    string Kalimat;
+    cout << "=========================================\n";
+    cout << "  TEMUKAN HURUF VOKAL DALAM KALIMAT\n";
+    cout << "=========================================\n";
+
+    // Input dari pengguna
+    cout << "Masukkan kalimat: ";
+    getline(cin, Kalimat);
+
+    // Menghitung banyaknya huruf vokal dan mencatat huruf vokal yang diinput
+    pair<int, map<char, int>> result = HitungVocal_145(Kalimat);
+
+    // Menampilkan hasil
+    cout << "Jumlah huruf vokal dalam kalimat adalah: " << result.first << endl;
+    cout << "Huruf vokal yang ditemukan dalam kalimat: ";
+    for (const auto &pair : result.second)
+    {
+        cout << pair.first << " (" << pair.second << "), ";
+    }
+    cout << endl;
+
     return 0;
 }
+
 ```
 #### Output:
-![240302_00h00m06s_screenshot](https://github.com/suxeno/Struktur-Data-Assignment/assets/111122086/6d1727a8-fb77-4ecf-81ff-5de9386686b7)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/39768799-ad9a-43bd-99da-f39311ea0279)
 
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
+Kode di atas adalah implementasi dalam C++ untuk menghitung jumlah dan mencatat huruf vokal dalam sebuah kalimat yang dimasukkan oleh pengguna. Program ini menggunakan fungsi `Vokal_145` untuk memeriksa apakah sebuah karakter adalah huruf vokal, dan kemudian menggunakan fungsi `HitungVocal_145` untuk menghitung jumlah huruf vokal dan mencatat kemunculan masing-masing huruf vokal dalam kalimat. Setelah input kalimat dari pengguna, program akan menampilkan jumlah huruf vokal dalam kalimat serta huruf vokal yang ditemukan beserta jumlah kemunculannya.
+## Unguided 
 
+### 3. Diketahui data = 9, 4, 1, 4, 7, 10, 5, 4, 12, 4. Hitunglah berapa banyak angka 4 dengan menggunakan algoritma Sequential Search!
+
+```C++
+/*
+    Avrizal Setyo Aji Nugroho
+    2311102145
+*/
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// Fungsi untuk mencari berapa banyak angka 4 dalam data
+int HitungAngkaEmpat_145(const vector<int> &data)
+{
+    int Hitung = 0;
+    for (int num : data)
+    {
+        if (num == 4)
+        {
+            Hitung++;
+        }
+    }
+    return Hitung;
+}
+
+int main()
+{
+    // Data yang diberikan
+    vector<int> data = {9, 4, 1, 4, 7, 10, 5, 4, 12, 4};
+
+    // Menghitung berapa banyak angka 4 dalam data menggunakan Sequential Search
+    int Hitung = HitungAngkaEmpat_145(data);
+
+    // Menampilkan hasil
+    cout << "Banyaknya angka 4 dalam data adalah: " << Hitung << endl;
+
+    return 0;
+}
+
+```
+#### Output:
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/c42eb151-e394-44b7-a171-77a28b762a31)
+
+Kode di atas adalah implementasi dalam C++ untuk menghitung berapa banyak angka 4 dalam sebuah vektor yang telah diberikan. Program ini menggunakan fungsi `HitungAngkaEmpat_145` untuk melakukan iterasi melalui setiap elemen dalam vektor dan menghitung berapa kali angka 4 muncul. Setelah itu, program menampilkan hasil jumlah angka 4 yang ditemukan dalam vektor.
 ## Kesimpulan
 Ringkasan dan interpretasi pandangan kalia dari hasil praktikum dan pembelajaran yang didapat[1].
 
