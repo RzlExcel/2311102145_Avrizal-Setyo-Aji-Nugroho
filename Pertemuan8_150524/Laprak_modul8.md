@@ -1,4 +1,4 @@
-# <h1 align="center">Laporan Praktikum Modul Tipe Data</h1>
+# <h1 align="center">Laporan Praktikum Modul ALGORITMA SEARCHING</h1>
 <p align="center">Avrizal Setyo Aji Nugroho</p>
 <p align="center">2311102145</p>
 
@@ -25,118 +25,136 @@ Tipe data adalah klasifikasi value suatu variabel yang membantu operasi komputer
 
 ```C++
 #include <iostream>
-#include <iomanip>
 
 using namespace std;
-// Tipe Data Primitif
-int main (){
-    char op;
-    float num1, num2;
 
-    cout<< "Enter operator (+, -, *, /): ";
-    cin >> op;
+int main()
+{
+    int n = 10;
+    int data[n] = {9, 4, 1, 7, 5, 12, 4, 13, 4, 10};
+    int cari = 10;
+    bool ketemu = false;
+    int i;
 
-    cout << "enter two oprands: ";
-    cin >> num1 >> num2;
-
-    switch (op)
+    for (i = 0; i < n; i++)
     {
-    case '+':
-        cout << "Result: " << num1 + num2;
-        break;
-    case '-':
-        cout << "Result: " << num1 - num2;
-        break;
-     case '*':
-        cout << "Result: " << num1 * num2;
-        break;
-    case '/':
-        if (num2 != 0){
-            cout << "Result: "<< fixed << setprecision(2) << num1 / num2;
-        } else{
-            cout << "Error! Division by zero is not allowed.";
+        if (data[i] == cari)
+        {
+            ketemu = true;
+            break;
         }
-        break;
-    default:
-    cout << "Error! Operator is not correct";
-        break;
     }
+
+    cout << "Program Sequential Search" << endl;
+    cout << "data : {9,4,1,7,5,12,4,13,4,10}" << endl;
+
+    if (ketemu)
+    {
+        cout << "\nAngka " << cari << " ditemukan pada indeks ke-" << i << endl;
+    }
+    else
+    {
+        cout << "data tidak ditemukan" << endl;
+    }
+
     return 0;
 }
 ```
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
-
+Kode di atas adalah implementasi dari algoritma Sequential Search yang mencari elemen `10` dalam array `data` yang terdiri dari 10 elemen. Program dimulai dengan mendefinisikan array `data` dan elemen yang akan dicari (`cari`). Sebuah loop `for` digunakan untuk memeriksa setiap elemen dalam array. Jika elemen yang dicari ditemukan, variabel `ketemu` diatur menjadi `true` dan loop berhenti. Setelah loop, program menampilkan pesan apakah elemen ditemukan atau tidak, serta indeks di mana elemen tersebut ditemukan jika ada. Output akhir memberikan informasi tentang keberadaan elemen `10` dalam array `data` dan posisinya jika ditemukan.
 ## Guided 
 
 ### 2. Tipe data Abstrak
 
 ```C++
-#include <stdio.h>
-#include <string.h>
-// Tipe data Abstrak
-// Struct
-struct Mahasiswa
+#include <iostream>
+#include <conio.h>
+#include <iomanip>
+
+using namespace std;
+
+int dataArray[7] = {1, 8, 2, 5, 4, 9, 7};
+int cari;
+
+void selection_sort()
 {
-char name[50];
-char address[100];
-int age;
-};
+    int temp, min, i, j;
+    for (i = 0; i < 7; i++)
+    {
+        min = i;
+        for (j = i + 1; j < 7; j++)
+        {
+            if (dataArray[j] < dataArray[min])
+            {
+                min = j;
+            }
+        }
+        temp = dataArray[i];
+        dataArray[i] = dataArray[min];
+        dataArray[min] = temp;
+    }
+}
+
+void binerySearch()
+{
+    int awal, akhir, tengah;
+    bool b_flag = false;
+    awal = 0;
+    akhir = 0;
+    while (b_flag && awal <= akhir)
+    {
+        tengah = (awal + akhir) / 2;
+        if (dataArray[tengah] == cari)
+        {
+            b_flag = true;
+        }
+        else if (dataArray[tengah] < cari)
+        {
+            akhir = tengah + 1;
+        }
+        else
+        {
+            akhir = tengah - 1;
+        }
+    }
+    if (b_flag)
+    {
+        cout << "\nData ditemukan pada indeks ke-" << tengah << endl;
+    }
+    else
+    {
+        cout << "\nData tidak ditemukan" << endl;
+    }
+}
+
 int main()
 {
-   // Menggunakan Struct
-struct Mahasiswa mhs1, mhs2;
-// Mengisi nilai ke struct
-strcpy(mhs1.name, "Dian");
-strcpy(mhs1.address, "Mataram");
-mhs1.age = 22;
-strcpy(mhs2.name, "Bambang");
-strcpy(mhs2.address, "Surabaya");
-mhs2.age = 23;
+    cout << "Binery Search" << endl;
+    cout << "\ndata : ";
 
-// Mencetak isi dari struct
-printf("## Mahasiswa 1 ##\n");
-printf("Nama: %s\n", mhs1.name);
-printf("Alamat: %s\n", mhs1.address);
-printf("Umur: %d\n", mhs1.age);
-printf ("\n");
-printf("## Mahasiswa 2 ##\n");
-printf("Nama: %s\n", mhs2.name);
-printf("Alamat: %s\n", mhs2.address);
-printf("Umur: %d\n", mhs2.age);
-return 0;
+    for (int x = 0; x < 7; x++)
+    {
+        cout << setw(3) << dataArray[x];
+    }
+    cout << endl;
+
+    cout << "masukkan data yang ingin dicari : ";
+    cin >> cari;
+
+    cout << "\nData diurutkan : ";
+    selection_sort();
+
+    for (int x = 0; x < 7; x++)
+    {
+        cout << setw(3) << dataArray[x];
+    }
+    cout << endl;
+    binerySearch();
+    _getche();
+    return 0;
 }
 ```
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
+Kode di atas adalah implementasi program untuk mencari sebuah elemen dalam array menggunakan metode Binary Search setelah mengurutkannya dengan Selection Sort. Array `dataArray` berisi 7 elemen yang diurutkan menggunakan fungsi `selection_sort`, di mana elemen minimum ditemukan dan ditukar dengan elemen pada indeks saat ini. Setelah array diurutkan, fungsi `binerySearch` (dengan kesalahan penulisan "binarySearch") mencari elemen yang diinginkan (`cari`). Fungsi ini menggunakan metode pencarian biner dengan variabel `awal`, `akhir`, dan `tengah` untuk menentukan posisi elemen yang dicari. Program ini kemudian menampilkan hasil pencarian, apakah data ditemukan beserta indeksnya atau tidak ditemukan sama sekali. Input pengguna diambil untuk menentukan elemen yang dicari dan hasilnya ditampilkan setelah pengurutan dan pencarian selesai.
 
-## Guided 
-
-### 3. Tipe data Koleksi
-
-```C++
-#include <iostream>
-#include <array>
-//Tipe data koleksi
-using namespace std;
-int main() {
-// Deklarasi dan inisialisasi array
-int nilai[5];
-nilai[0] = 23;
-nilai[1] = 50;
-nilai[2] = 34;
-nilai[3] = 78;
-nilai[4] = 90;
-
-// Mencetak array dengan tab
-
-cout << "Isi array pertama : " << nilai[0] << endl;
-cout << "Isi array kedua : " << nilai[1] << endl;
-cout << "Isi array ketiga : " << nilai[2] << endl;
-cout << "Isi array keempat : " << nilai[3] << endl;
-cout << "Isi array kelima : " << nilai[4] << endl;
-return 0;
-}
-```
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
 
 ## Unguided 
 
