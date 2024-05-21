@@ -364,7 +364,8 @@ int main()
 
 Kode di atas adalah implementasi dalam C++ untuk menghitung berapa banyak angka 4 dalam sebuah vektor yang telah diberikan. Program ini menggunakan fungsi `HitungAngkaEmpat_145` untuk melakukan iterasi melalui setiap elemen dalam vektor dan menghitung berapa kali angka 4 muncul. Setelah itu, program menampilkan hasil jumlah angka 4 yang ditemukan dalam vektor.
 ## Kesimpulan
-Ringkasan dan interpretasi pandangan kalia dari hasil praktikum dan pembelajaran yang didapat[1].
+Dalam ilmu komputer, algoritma pencarian adalah teknik penting untuk menemukan keberadaan atau lokasi suatu nilai dalam kumpulan data. Tergantung pada struktur dan kondisi kumpulan data, algoritma pencarian sequential, biner, interpolasi, dan ternari memiliki mekanisme pencarian masing-masing yang memiliki keunggulan dan kelemahan. Search sequential sederhana dan tidak memerlukan data terurut, tetapi bisa lambat untuk kumpulan data besar. Search binary, di sisi lain, menawarkan efisiensi yang lebih tinggi dengan kompleksitas waktu O(log n). Untuk mengoptimalkan kinerja pencarian dalam berbagai aplikasi komputasi, sangat penting untuk memilih algoritma yang tepat berdasarkan karakteristik data dan persyaratan khusus.
 
 ## Referensi
-[1] I. Holm, Narrator, and J. Fullerton-Smith, Producer, How to Build a Human [DVD]. London: BBC; 2002.
+[1] Erkamim, E., Abdurrohim, I., Yuliyanti, S., Karim, R., Rahman, A., Admira, T. M. A., & Ridwan, A. (2024). Buku Ajar Algoritma dan Struktur Data. PT. Sonpedia Publishing Indonesia. <br>
+[2 ]Nugraha, M. (2021). Dasar Pemrograman Dengan C++ Materi Paling Dasar Untuk Menjadi Programmer Berbagai Platform. Deepublish.
