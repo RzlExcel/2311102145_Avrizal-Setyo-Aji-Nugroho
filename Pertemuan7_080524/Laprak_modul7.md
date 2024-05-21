@@ -1,272 +1,300 @@
-# <h1 align="center">Laporan Praktikum Modul Tipe Data</h1>
+# <h1 align="center">Laporan Praktikum Modul QUEUE</h1>
 <p align="center">Avrizal Setyo Aji Nugroho</p>
 <p align="center">2311102145</p>
 
 ## Dasar Teori
 
+Queue atau antrian adalah struktur data abstrak yang digunakan untuk menyimpan sekumpulan data dengan cara First In First Out (FIFO). Artinya, elemen yang pertama kali masuk ke dalam antrian adalah elemen yang pertama kali dikeluarkan.
+
+Queue sering diibaratkan seperti antrian di kehidupan nyata, di mana orang yang datang pertama kali dilayani terlebih dahulu. Hal ini berbeda dengan struktur data lain seperti stack yang menggunakan prinsip Last In First Out (LIFO).
+
+Operasi Dasar Queue
+
+Ada beberapa operasi dasar yang dapat dilakukan pada queue:
+
+1. Enqueue: Menambahkan elemen baru ke dalam queue, biasanya dilakukan di ujung belakang (rear) queue.
+2. Dequeue: Menghapus elemen pertama dari queue, biasanya dilakukan di ujung depan (front) queue.
+3. Front: Mendapatkan elemen pertama dari queue tanpa menghapusnya.
+4. IsEmpty: Memeriksa apakah queue kosong.
+5. IsFull: Memeriksa apakah queue penuh (untuk implementasi menggunakan array).
+6. Count: Menghitung jumlah elemen dalam queue.
+7. Clear: Menghapus semua elemen dari queue.
+
+Queue dapat diimplementasikan dengan menggunakan berbagai struktur data, seperti array, linked list, dan circular array.
+
+1. Implementasi dengan Array: Sederhana, tetapi memiliki keterbatasan ukuran.
+2. Implementasi dengan Linked List: Lebih fleksibel dalam ukuran, tetapi lebih kompleks.
+3. Implementasi dengan Circular Array: Menggabungkan kelebihan array dan linked list.
 
 
 
 ## Guided 
 
-### 1. Hash Table
+### 1. QUEUE
 
 ```C++
 #include <iostream>
+
 using namespace std;
-const int MAX_SIZE = 10;
-// Fungsi hash sederhana
-int hash_func(int key)
-{
-    return key % MAX_SIZE;
+
+const int maksimalQueue = 5; // Maksimal antrian
+int front = 0;               // Penanda antrian
+int back = 0;                // Penanda
+string queueTeller[5];       // Fungsi pengecekan
+bool isFull()
+{ // Pengecekan antrian penuh atau tidak
+    if (back == maksimalQueue)
+    {
+        return true; // =1
+    }
+    else
+    {
+        return false;
+    }
 }
-// Struktur data untuk setiap node
+bool isEmpty()
+{ // Antriannya kosong atau tidak
+    if (back == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+void enqueueAntrian(string data)
+{ // Fungsi menambahkan antrian
+    if (isFull())
+    {
+        cout << "Antrian penuh" << endl;
+    }
+    else
+    {
+        if (isEmpty())
+        { // Kondisi ketika queue kosong
+            queueTeller[0] = data;
+            front++;
+            back++;
+        }
+        else
+        { // Antrianya ada isi
+            queueTeller[back] = data;
+            back++;
+        }
+    }
+}
+void dequeueAntrian()
+{ // Fungsi mengurangi antrian
+    if (isEmpty())
+    {
+        cout << "Antrian kosong" << endl;
+    }
+    else
+    {
+        for (int i = 0; i < back; i++)
+        {
+            queueTeller[i] = queueTeller[i + 1];
+        }
+        back--;
+    }
+}
+int countQueue()
+{ // Fungsi menghitung banyak antrian
+    return back;
+}
+void clearQueue()
+{ // Fungsi menghapus semua antrian
+    if (isEmpty())
+    {
+        cout << "Antrian kosong" << endl;
+    }
+    else
+    {
+        for (int i = 0; i < back; i++)
+        {
+            queueTeller[i] = "";
+        }
+        back = 0;
+        front = 0;
+    }
+}
+void viewQueue()
+{ // Fungsi melihat antrian
+    cout << "Data antrian teller:" << endl;
+    for (int i = 0; i < maksimalQueue; i++)
+    {
+        if (queueTeller[i] != "")
+        {
+            cout << i + 1 << ". " << queueTeller[i] << endl;
+        }
+        else
+        {
+            cout << i + 1 << ". (kosong)" << endl;
+        }
+    }
+}
+int main()
+{
+    enqueueAntrian("Andi");
+    enqueueAntrian("Maya");
+    viewQueue();
+    cout << "Jumlah antrian = " << countQueue() << endl;
+    dequeueAntrian();
+    viewQueue();
+    cout << "Jumlah antrian = " << countQueue() << endl;
+    clearQueue();
+    viewQueue();
+    cout << "Jumlah antrian = " << countQueue() << endl;
+    return 0;
+}
+
+```
+
+Kode di atas merupakan implementasi sederhana dari struktur data antrian (queue). Program ini memiliki fungsi dasar seperti enqueue (menambah elemen), dequeue (menghapus elemen), clearQueue (menghapus semua elemen), isEmpty (mengecek apakah antrian kosong atau penuh), countQueue (menghitung jumlah elemen dalam antrian), dan viewQueue (menampilkan elemen dalam antrian). Dengan menambah, menghapus, dan membersihkan antrian, operasi-operasi tersebut diuji dalam fungsi utama.
+
+
+
+## Unguided 1
+## Ubahlah penerapan konsep queue pada bagian guided dari array menjadi linked list
+
+
+```C++
+/*
+    Avrizal Setyo Aji Nugroho
+    2311102145
+*/
+#include <iostream>
+using namespace std;
+
 struct Node
 {
-    int key;
-    int value;
+    string data;
     Node *next;
-    Node(int key, int value) : key(key), value(value),
-                               next(nullptr) {}
 };
-// Class hash table
-class HashTable
+
+// Class Queue menggunakan linked list
+class Queue
 {
 private:
-    Node **table;
+    Node *front;
+    Node *back;
 
 public:
-    HashTable()
+    Queue()
     {
-        table = new Node *[MAX_SIZE]();
+        front = nullptr;
+        back = nullptr;
     }
-    ~HashTable()
+
+    // Fungsi untuk mengecek apakah queue kosong
+    bool isEmpty()
     {
-        for (int i = 0; i < MAX_SIZE; i++)
+        return front == nullptr;
+    }
+
+    // Fungsi untuk menambahkan data ke dalam queue
+    void enqueue(string data)
+    {
+        Node *newNode = new Node();
+        newNode->data = data;
+        newNode->next = nullptr;
+
+        if (isEmpty())
         {
-            Node *current = table[i];
-            while (current != nullptr)
-            {
-                Node *temp = current;
-                current = current->next;
-                delete temp;
-            }
+            front = newNode;
+            back = newNode;
         }
-        delete[] table;
+        else
+        {
+            back->next = newNode;
+            back = newNode;
+        }
     }
-    // Insertion
-    void insert(int key, int value)
+
+    // Fungsi untuk menghapus data dari queue
+    void dequeue()
     {
-        int index = hash_func(key);
-        Node *current = table[index];
+        if (isEmpty())
+        {
+            cout << "Antrian kosong" << endl;
+            return;
+        }
+        Node *temp = front;
+        front = front->next;
+        delete temp;
+    }
+
+    // Fungsi untuk melihat data yang ada di queue
+    void viewQueue()
+    {
+        if (isEmpty())
+        {
+            cout << "Antrian kosong" << endl;
+            return;
+        }
+        cout << "Data antrian teller:" << endl;
+        Node *current = front;
+        int position = 1;
         while (current != nullptr)
         {
-            if (current->key == key)
-            {
-                current->value = value;
-                return;
-            }
+            cout << position << ". " << current->data << endl;
             current = current->next;
+            position++;
         }
-        Node *node = new Node(key, value);
-        node->next = table[index];
-        table[index] = node;
     }
-    // Searching
-    int get(int key)
+
+    // Fungsi untuk menghitung jumlah data di queue
+    int countQueue()
     {
-        int index = hash_func(key);
-        Node *current = table[index];
+        int count = 0;
+        Node *current = front;
         while (current != nullptr)
         {
-            if (current->key == key)
-            {
-                return current->value;
-            }
+            count++;
             current = current->next;
         }
-        return -1;
+        return count;
     }
-    // Deletion
-    void remove(int key)
+
+    // Fungsi untuk membersihkan queue
+    void clearQueue()
     {
-        int index = hash_func(key);
-        Node *current = table[index];
-        Node *prev = nullptr;
-        while (current != nullptr)
+        while (!isEmpty())
         {
-            if (current->key == key)
-            {
-                if (prev == nullptr)
-                {
-                    table[index] = current->next;
-                }
-                else
-                {
-                    prev->next = current->next;
-                }
-                delete current;
-                return;
-            }
-            prev = current;
-            current = current->next;
-        }
-    }
-    // Traversal
-    void traverse()
-    {
-        for (int i = 0; i < MAX_SIZE; i++)
-        {
-            Node *current = table[i];
-            while (current != nullptr)
-            {
-                cout << current->key << ": " << current->value
-                     << endl;
-                current = current->next;
-            }
+            dequeue();
         }
     }
 };
+
 int main()
 {
-    HashTable ht;
-    // Insertion
-    ht.insert(1, 10);
-    ht.insert(2, 20);
-    ht.insert(3, 30);
-    // Searching
-    cout << "Get key 1: " << ht.get(1) << endl;
-    cout << "Get key 4: " << ht.get(4) << endl;
-    // Deletion
-    ht.remove(4);
-    // Traversal
-    ht.traverse();
+    Queue queue; // Membuat objek queue
+
+    queue.enqueue("Andi");
+    queue.enqueue("Maya");
+    queue.viewQueue();
+    cout << "Jumlah antrian = " << queue.countQueue() << endl;
+
+    queue.dequeue();
+    queue.viewQueue();
+    cout << "Jumlah antrian = " << queue.countQueue() << endl;
+
+    queue.clearQueue();
+    queue.viewQueue();
+    cout << "Jumlah antrian = " << queue.countQueue() << endl;
+
     return 0;
 }
 ```
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
-
-## Guided 
-
-### 2. Hash Table
-
-```C++
-#include <iostream>
-#include <string>
-#include <vector>
-using namespace std;
-const int TABLE_SIZE = 11;
-string name;
-string phone_number;
-class HashNode
-{
-public:
-    string name;
-    string phone_number;
-    HashNode(string name, string phone_number)
-    {
-        this->name = name;
-        this->phone_number = phone_number;
-    }
-};
-class HashMap
-{
-private:
-    vector<HashNode *> table[TABLE_SIZE];
-
-public:
-    int hashFunc(string key)
-    {
-        int hash_val = 0;
-        for (char c : key)
-        {
-            hash_val += c;
-        }
-        return hash_val % TABLE_SIZE;
-    }
-    void insert(string name, string phone_number)
-    {
-        int hash_val = hashFunc(name);
-        for (auto node : table[hash_val])
-        {
-            if (node->name == name)
-            {
-                node->phone_number = phone_number;
-                return;
-            }
-        }
-        table[hash_val].push_back(new HashNode(name,
-                                               phone_number));
-    }
-    void remove(string name)
-    {
-        int hash_val = hashFunc(name);
-        for (auto it = table[hash_val].begin(); it !=
-                                                table[hash_val].end();
-             it++)
-        {
-            if ((*it)->name == name)
-            {
-                table[hash_val].erase(it);
-                return;
-            }
-        }
-    }
-    string searchByName(string name)
-    {
-        int hash_val = hashFunc(name);
-        for (auto node : table[hash_val])
-        {
-            if (node->name == name)
-            {
-                return node->phone_number;
-            }
-        }
-        return "";
-    }
-    void print()
-    {
-        for (int i = 0; i < TABLE_SIZE; i++)
-        {
-            cout << i << ": ";
-            for (auto pair : table[i])
-            {
-                if (pair != nullptr)
-                {
-                    cout << "[" << pair->name << ", " << pair->phone_number << "]";
-                }
-            }
-            cout << endl;
-        }
-    }
-};
-int main()
-{
-    HashMap employee_map;
-    employee_map.insert("Mistah", "1234");
-    employee_map.insert("Pastah", "5678");
-    employee_map.insert("Ghana", "91011");
-    cout << "Nomer Hp Mistah : "
-         << employee_map.searchByName("Mistah") << endl;
-    cout << "Phone Hp Pastah : "
-         << employee_map.searchByName("Pastah") << endl;
-    employee_map.remove("Mistah");
-    cout << "Nomer Hp Mistah setelah dihapus : "
-         << employee_map.searchByName("Mistah") << endl
-         << endl;
-    cout << "Hash Table : " << endl;
-    employee_map.print();
-    return 0;
-}
-```
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
+#### Output:
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/76481400-569f-41f1-b970-f4b01dcc0f62)
 
 
+Kode di atas menunjukkan penggunaan linked list dalam bahasa C++ untuk menjalankan struktur data antrian (queue). Setiap elemen dalam antrian diwakili sebagai simpul (node) yang terhubung satu sama lain. Kelas antrian memiliki fungsi dasar seperti menambah atau menghapus elemen; menampilkan antrian (menampilkan elemen dalam antrian); menghitung antrian (menghitung jumlah elemen dalam antrian); dan clearQueue (menghapus semua elemen dalam antrian). Beberapa operasi seperti penambahan, penghapusan, dan pembersihan antrian dilakukan untuk memeriksa fungsi main function.
 
-## Unguided 
-
- 
-![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/cabe2547-3be2-4224-a835-d5d8578b2ff1)
+## Unguided 2
+## Dari nomor 1 buatlah konsep antri dengan atribut Nama mahasiswa dan NIM Mahasiswa
 
 
 
@@ -276,229 +304,144 @@ Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktika
     2311102145
 */
 #include <iostream>
-#include <string>
 using namespace std;
 
-const int MAX_SIZE = 10;
-
-// Struktur data untuk setiap node
-struct Node
+struct MahasiswaNode
 {
-    string NIM;
     string nama;
-    int nilai;
-    Node *next;
-    Node(string NIM, string nama, int nilai) : NIM(NIM), nama(nama), nilai(nilai), next(nullptr) {}
+    string nim;
+    MahasiswaNode *next;
 };
 
-// Class hash table
-class HashTable
+// Class Queue menggunakan linked list untuk Mahasiswa
+class MahasiswaQueue
 {
 private:
-    Node **table;
+    MahasiswaNode *front;
+    MahasiswaNode *back;
 
 public:
-    HashTable()
+    MahasiswaQueue()
     {
-        table = new Node *[MAX_SIZE]();
+        front = nullptr;
+        back = nullptr;
     }
 
-    ~HashTable()
+    // Fungsi untuk mengecek apakah queue kosong
+    bool isEmpty()
     {
-        for (int i = 0; i < MAX_SIZE; i++)
-        {
-            Node *current = table[i];
-            while (current != nullptr)
-            {
-                Node *temp = current;
-                current = current->next;
-                delete temp;
-            }
-        }
-        delete[] table;
+        return front == nullptr;
     }
 
-    // Fungsi hash sederhana
-    int hash_func(string NIM)
+    // Fungsi untuk menambahkan data Mahasiswa ke dalam queue
+    void enqueue(string nama, string nim)
     {
-        int sum = 0;
-        for (char c : NIM)
-        {
-            sum += c;
-        }
-        return sum % MAX_SIZE;
-    }
+        MahasiswaNode *newNode = new MahasiswaNode();
+        newNode->nama = nama;
+        newNode->nim = nim;
+        newNode->next = nullptr;
 
-    // Fungsi Menginputkan data
-    void insert(string NIM, string nama, int nilai)
-    {
-        int index = hash_func(NIM);
-        Node *newNode = new Node(NIM, nama, nilai);
-        if (table[index] == nullptr)
+        if (isEmpty())
         {
-            table[index] = newNode;
+            front = newNode;
+            back = newNode;
         }
         else
         {
-            Node *current = table[index];
-            while (current->next != nullptr)
-            {
-                current = current->next;
-            }
-            current->next = newNode;
+            back->next = newNode;
+            back = newNode;
         }
     }
 
-    // Fungsi untuk menghapus data
-    void remove(string NIM)
+    // Fungsi untuk menghapus data Mahasiswa dari queue
+    void dequeue()
     {
-        int index = hash_func(NIM);
-        Node *current = table[index];
-        Node *prev = nullptr;
+        if (isEmpty())
+        {
+            cout << "Antrian kosong" << endl;
+            return;
+        }
+        MahasiswaNode *temp = front;
+        front = front->next;
+        delete temp;
+    }
+
+    // Fungsi untuk melihat data Mahasiswa yang ada di queue
+    void viewQueue()
+    {
+        if (isEmpty())
+        {
+            cout << "Antrian kosong" << endl;
+            return;
+        }
+        cout << "Data antrian mahasiswa:" << endl;
+        MahasiswaNode *current = front;
+        int position = 1;
         while (current != nullptr)
         {
-            if (current->NIM == NIM)
-            {
-                if (prev == nullptr)
-                {
-                    table[index] = current->next;
-                }
-                else
-                {
-                    prev->next = current->next;
-                }
-                delete current;
-                return;
-            }
-            prev = current;
+            cout << position << ". Nama: " << current->nama << ", NIM: " << current->nim << endl;
             current = current->next;
+            position++;
         }
-        cout << "Data Ra ene NIM: " << NIM << endl;
     }
 
-    // Fungsi mencari  data berdasarkan NIM
-    void searchByNIM(string NIM)
+    // Fungsi untuk menghitung jumlah data Mahasiswa di queue
+    int countQueue()
     {
-        int index = hash_func(NIM);
-        Node *current = table[index];
+        int count = 0;
+        MahasiswaNode *current = front;
         while (current != nullptr)
         {
-            if (current->NIM == NIM)
-            {
-                cout << "Data ditemukan - NIM: " << current->NIM << ", Nama: " << current->nama << ", Nilai: " << current->nilai << endl;
-                return;
-            }
+            count++;
             current = current->next;
         }
-        cout << "Data Ra ene NIM: " << NIM << endl;
+        return count;
     }
 
-    // Fungsi mencari data  berdasarkan nilai
-    void searchByRange()
+    // Fungsi untuk membersihkan queue
+    void clearQueue()
     {
-        for (int i = 0; i < MAX_SIZE; i++)
+        while (!isEmpty())
         {
-            Node *current = table[i];
-            while (current != nullptr)
-            {
-                if (current->nilai >= 80 && current->nilai <= 90)
-                {
-                    cout << "NIM: " << current->NIM << ", Nama: " << current->nama << ", Nilai: " << current->nilai << endl;
-                }
-                current = current->next;
-            }
+            dequeue();
         }
-    }
-
-    // Menampilkan semua data mahasiswa
-    void displayAllData()
-    {
-        cout << "Data Mahasiswa:\n";
-        for (int i = 0; i < MAX_SIZE; i++)
-        {
-            Node *current = table[i];
-            while (current != nullptr)
-            {
-                cout << "NIM: " << current->NIM << ", Nama: " << current->nama << ", Nilai: " << current->nilai << endl;
-                current = current->next;
-            }
-        }
-    }
-
-    // Menampilkan menu pilihan
-    void displayMenu()
-    {
-        cout << "Menu:\n";
-        cout << "1. Tambah Data\n";
-        cout << "2. Hapus Data\n";
-        cout << "3. Cari berdasarkan NIM\n";
-        cout << "4. Cari berdasarkan rentang nilai (80-90)\n";
-        cout << "5. Tampilkan data mahasiswa\n";
-        cout << "6. Keluar\n";
     }
 };
 
 int main()
 {
-    HashTable hashTable;
+    MahasiswaQueue queue;
 
-    int choice;
-    string NIM, nama;
-    int nilai;
-
+    char tambahLagi;
     do
     {
-        hashTable.displayMenu();
-        cout << "Pilih menu: ";
-        cin >> choice;
+        string nama, nim;
+        cout << "Masukkan nama mahasiswa: ";
+        getline(cin, nama);
+        cout << "Masukkan NIM mahasiswa: ";
+        getline(cin, nim);
+        queue.enqueue(nama, nim);
 
-        switch (choice)
-        {
-        case 1:
-            cout << "Inputkan NIM: ";
-            cin >> NIM;
-            cout << "Inputkan Nama: ";
-            cin >> nama;
-            cout << "Inputkan Nilai: ";
-            cin >> nilai;
-            hashTable.insert(NIM, nama, nilai);
-            break;
-        case 2:
-            cout << "Inputkan NIM yang ingin dihapus: ";
-            cin >> NIM;
-            hashTable.remove(NIM);
-            break;
-        case 3:
-            cout << "Inputkan NIM yang ingin dicari: ";
-            cin >> NIM;
-            hashTable.searchByNIM(NIM);
-            break;
-        case 4:
-            cout << "Data dengan nilai antara 80-90:\n";
-            hashTable.searchByRange();
-            break;
-        case 5:
-            hashTable.displayAllData();
-            break;
-        case 6:
-            cout << "Keluar dari program.\n";
-            break;
-        default:
-            cout << "Tidak Valid, yang bener aje rugi dong.\n";
-        }
-    } while (choice != 6);
+        cout << "Apakah ingin menambahkan mahasiswa lagi? (y/n): ";
+        cin >> tambahLagi;
+        cin.ignore();
+    } while (tambahLagi == 'y' || tambahLagi == 'Y');
+
+    queue.viewQueue();
+    cout << "Jumlah antrian = " << queue.countQueue() << endl;
 
     return 0;
 }
+
 ```
 #### Output:
-![Screenshot%20(52).png](https://github.com/suxeno/Struktur-Data-Assignment/assets/111122086/6d1727a8-fb77-4ecf-81ff-5de9386686b7)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/4966deda-191e-4d7e-bce7-bae0f88e28e7)
 
-Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
 
+Kode di atas menjalankan struktur data antrian (queue) menggunakan daftar terhubung untuk menampilkan data Mahasiswa dalam bahasa C++. Program meminta pengguna memasukkan nama dan NIM Mahasiswa secara berulang hingga mereka tidak ingin menambahkan lagi. Setelah semua data Mahasiswa dimasukkan ke dalam antrian, program akan menampilkan daftar Mahasiswa bersama dengan jumlah Mahasiswa yang ada dalam antrian. Struktur data ini memungkinkan penambahan dan penghapusan data Mahasiswa dengan urutan first-in-first-out (FIFO).
 
 ## Kesimpulan
-Ringkasan dan interpretasi pandangan kalia dari hasil praktikum dan pembelajaran yang didapat[1].
-
+Dalam pemrograman komputer, queue adalah struktur data yang penting yang memungkinkan penyimpanan dan penarikan elemen dalam urutan tertentu, yaitu first-in-first-out (FIFO). Dalam antrian, elemen baru dapat ditambahkan ke ujung belakangnya, dan elemen yang sudah ada dapat diproses dan dihapus dari ujung depannya. Dengan demikian, antrian sangat berguna untuk berbagai tujuan, termasuk penjadwalan tugas, pengelolaan tugas antrian, dan pengiriman pesan antarproses. Implementasi antrian dapat dilakukan dengan berbagai struktur data dasar, seperti array atau daftar terkait. Antrian memiliki fungsi dasar seperti enqueue (menambah elemen), dequeue (menghapus elemen), isEmpty (mengecek apakah antrian kosong atau penuh), viewQueue (melihat elemen dalam antrian), countQueue (menghitung jumlah elemen dalam antrian), dan clearQueue (menghapus semua elemen dalam antrian).
 ## Referensi
-[1] I. Holm, Narrator, and J. Fullerton-Smith, Producer, How to Build a Human [DVD]. London: BBC; 2002.
+[1] Erkamim, E., Abdurrohim, I., Yuliyanti, S., Karim, R., Rahman, A., Admira, T. M. A., & Ridwan, A. (2024). Buku Ajar Algoritma dan Struktur Data. PT. Sonpedia Publishing Indonesia.
+[2 ]Nugraha, M. (2021). Dasar Pemrograman Dengan C++ Materi Paling Dasar Untuk Menjadi Programmer Berbagai Platform. Deepublish.
