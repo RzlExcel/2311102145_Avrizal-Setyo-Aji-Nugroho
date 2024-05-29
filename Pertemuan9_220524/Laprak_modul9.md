@@ -1071,8 +1071,7 @@ Kode di atas adalah program C++ modifikasi untuk manipulasi pohon biner pada gui
 
 
 ## Kesimpulan
-Ringkasan dan interpretasi pandangan kalia dari hasil praktikum dan pembelajaran yang didapat[1].
-
+Dalam praktikum ini, kita telah memahami dan mengimplementasikan struktur data graf dan pohon. Graf digunakan untuk merepresentasikan hubungan antar data dengan bobot, sementara pohon digunakan untuk struktur hirarki dengan satu root. Implementasi graf menggunakan matriks adjacency, sedangkan pohon menggunakan struktur data pointer dinamis untuk menghubungkan simpul-simpulnya. Traversal pohon penting untuk mengakses data dalam urutan tertentu. Praktikum ini memperkuat konsep dasar struktur data yang sangat berguna dalam berbagai aplikasi ilmu komputer.
 ## Referensi
 [1] Erkamim, E., Abdurrohim, I., Yuliyanti, S., Karim, R., Rahman, A., Admira, T. M. A., & Ridwan, A. (2024). Buku Ajar Algoritma dan Struktur Data. PT. Sonpedia Publishing Indonesia.
 [2 ]Nugraha, M. (2021). Dasar Pemrograman Dengan C++ Materi Paling Dasar Untuk Menjadi Programmer Berbagai Platform. Deepublish.
