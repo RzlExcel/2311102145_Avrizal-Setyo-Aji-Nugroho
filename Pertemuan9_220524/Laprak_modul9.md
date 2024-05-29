@@ -511,7 +511,7 @@ int main()
 
 ```
 #### Output:
-![Screenshot%20(52).png](https://github.com/suxeno/Struktur-Data-Assignment/assets/111122086/6d1727a8-fb77-4ecf-81ff-5de9386686b7)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/d2a6cdd1-0f8f-4180-a217-0c40c2aef60c)
 
 Kode di atas merupakan program C++ untuk menginput dan menampilkan matriks adjacency yang merepresentasikan graf berbobot (weighted graph) antara beberapa simpul (nodes), yang dalam konteks ini adalah kota-kota. Pertama, program meminta pengguna untuk memasukkan jumlah simpul dan namanya. Kemudian, program menginisialisasi matriks adjacency dengan ukuran yang sesuai dengan jumlah simpul, yang diisi dengan bobot antar simpul yang dimasukkan oleh pengguna. Terakhir, program menampilkan matriks adjacency yang sudah terbentuk dalam format tabel, di mana baris dan kolom diberi label nama simpul untuk memudahkan pembacaannya. Program ini menggunakan library C++ standar seperti iostream untuk input dan output, vector untuk menyimpan data secara dinamis, string untuk mengatur nama simpul, dan iomanip untuk memformat output dengan benar.
 
@@ -1039,7 +1039,33 @@ int main()
 
 ```
 #### Output:
-![240302_00h00m06s_screenshot](https://github.com/suxeno/Struktur-Data-Assignment/assets/111122086/6d1727a8-fb77-4ecf-81ff-5de9386686b7)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/1c764d95-a617-4c2b-bbe6-074ada9c6ee8)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/3c8f22da-43a2-4a81-9684-dee3fee812fc)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/6cf6776e-5892-4b8e-aabd-ce5977add91b)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/151ce882-8a4c-49d2-a78c-9c33838b83af)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/d96ffa83-7e97-4d10-9077-391854b0eb49)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/9ba6d69b-689c-4e1e-b9bf-1af4d51796f5)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/1cc18331-4a33-45bf-bf9c-4f9e3ac9367c)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/f9bc2097-8d4c-4d52-b698-469beaef57fd)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/010c923c-0fc3-4963-90b3-6b3fe950d1c7)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/f434128a-0c23-4c5b-920d-6d62bc01b6ce)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/3994bd4e-6d06-4703-8aea-d40cd307bb9e)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/7251dab7-2cff-4daa-ae98-a57cb5c222b2)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/b0677536-9673-4ecd-9a97-ebd798c20735)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/02ec39d0-46ed-4555-ae38-2fdac2144923)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/3d6bb1a5-03ce-4fe8-abf6-ddc66bd38f71)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/01bcadb4-609c-4040-9186-9fb8467e8bd1)
+![image](https://github.com/RzlExcel/2311102145_Avrizal-Setyo-Aji-Nugroho/assets/151628376/5e780214-8177-480b-bb51-0738b0e895ef)
+
+
+
+
+
+
+
+
+
+
 
 Kode di atas adalah program C++ modifikasi untuk manipulasi pohon biner pada guided tree(guided2) yang menyediakan berbagai operasi dasar pada pohon biner melalui menu interaktif. Program ini menggunakan struktur `Pohon` untuk merepresentasikan node dalam pohon biner, yang mencakup data, child kiri, child kanan, dan parent. Fungsi-fungsi seperti `buatNode`, `insertLeft`, `insertRight`, `update`, `retrieve`, `find`, `displayChildren`, `displayDescendants`, `deleteSub`, `clear`, `size`, dan `height` mengizinkan pengguna untuk membuat node, menambah node kiri atau kanan, memperbarui data node, menampilkan data node, mencari node, menampilkan child dan descendant, menghapus subtree atau seluruh pohon, serta menghitung ukuran dan tinggi pohon. Selain itu, program ini mendukung traversal pohon dalam tiga cara: preOrder, inOrder, dan postOrder. Semua fungsi tersebut diakses melalui fungsi `menu` yang menampilkan pilihan menu kepada pengguna dan memanggil fungsi yang sesuai berdasarkan input pengguna. Program ini memulai dengan menginisialisasi pohon menggunakan fungsi `init` dan kemudian memanggil fungsi `menu` dari fungsi `main`.
 
@@ -1048,4 +1074,5 @@ Kode di atas adalah program C++ modifikasi untuk manipulasi pohon biner pada gui
 Ringkasan dan interpretasi pandangan kalia dari hasil praktikum dan pembelajaran yang didapat[1].
 
 ## Referensi
-[1] I. Holm, Narrator, and J. Fullerton-Smith, Producer, How to Build a Human [DVD]. London: BBC; 2002.
+[1] Erkamim, E., Abdurrohim, I., Yuliyanti, S., Karim, R., Rahman, A., Admira, T. M. A., & Ridwan, A. (2024). Buku Ajar Algoritma dan Struktur Data. PT. Sonpedia Publishing Indonesia.
+[2 ]Nugraha, M. (2021). Dasar Pemrograman Dengan C++ Materi Paling Dasar Untuk Menjadi Programmer Berbagai Platform. Deepublish.
